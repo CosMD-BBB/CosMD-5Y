@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CosMD+ 5-Year Strategic Plan Infographic</title>
-    <!-- Google Fonts & Tailwind CSS -->
+    <title>แผนกลยุทธ์ธุรกิจ 5 ปี (รวม Unit Economics Simulator) | บริษัท คอสเมด พลัส จำกัด (CosMD)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Prompt & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -17,1042 +21,927 @@
                 extend: {
                     colors: {
                         brand: {
-                            red: '#CD0404',
-                            brightRed: '#FF0032',
-                            black: '#000000',
-                            charcoal: '#121212',
-                            grey: '#4D4D4D',
-                            lightGrey: '#F5F5F5',
-                            softRed: '#FFF5F5',
-                            white: '#FFFFFF'
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
                         }
                     },
                     fontFamily: {
-                        sans: ['Sukhumvit Tadmai', 'Sukhumvit', 'Prompt', 'sans-serif'],
-                        manrope: ['Manrope', 'sans-serif']
+                        sans: ['Prompt', 'Plus Jakarta Sans', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        .custom-gradient {
-            background: linear-gradient(135deg, #121212 0%, #1a0202 50%, #CD0404 100%);
+        body {
+            font-family: 'Prompt', 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
         }
-        .neon-border {
-            box-shadow: 0 0 15px rgba(205, 4, 4, 0.15);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
-        .neon-border-hover:hover {
-            box-shadow: 0 0 25px rgba(255, 0, 50, 0.35);
-            border-color: #FF0032;
-        }
-        .transition-all-300 {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-        }
-        html {
-            scroll-behavior: smooth;
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f766e 0%, #0369a1 100%);
         }
     </style>
 </head>
-<body class="bg-[#f8f9fa] text-brand-black font-sans">
+<body class="antialiased text-slate-700">
 
-    <!-- Top Sticky Progress Navigator -->
-    <nav class="sticky top-0 z-50 bg-[#000000] text-white px-4 py-3 shadow-md border-b border-brand-red/20 backdrop-blur-md bg-opacity-95">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-brand-red to-brand-brightRed flex items-center justify-center font-bold text-white text-sm font-manrope shadow">M+</div>
-                <span class="font-manrope font-bold text-lg tracking-wider bg-gradient-to-r from-brand-brightRed to-white bg-clip-text text-transparent">CosMD+ 5-Year Plan</span>
-            </div>
-            <div class="flex flex-wrap gap-1 justify-center text-[11px] md:text-xs font-medium text-slate-300">
-                <a href="#intro" class="px-2.5 py-1.5 rounded-full hover:bg-brand-red hover:text-white transition-all-300">🔬 บทนำ</a>
-                <a href="#market" class="px-2.5 py-1.5 rounded-full hover:bg-brand-red hover:text-white transition-all-300">📊 บริบทธุรกิจ</a>
-                <a href="#strategy" class="px-2.5 py-1.5 rounded-full hover:bg-brand-red hover:text-white transition-all-300">🚀 กลยุทธ์</a>
-                <a href="#operation" class="px-2.5 py-1.5 rounded-full hover:bg-brand-red hover:text-white transition-all-300">⚙️ การดำเนินงาน</a>
-                <a href="#finance" class="px-2.5 py-1.5 rounded-full hover:bg-brand-red hover:text-white transition-all-300">💰 การเงิน</a>
-                <a href="#resource" class="px-2.5 py-1.5 rounded-full hover:bg-brand-red hover:text-white transition-all-300">📅 ทรัพยากร</a>
-                <a href="#risk" class="px-2.5 py-1.5 rounded-full hover:bg-brand-red hover:text-white transition-all-300">⚠️ ความเสี่ยง</a>
-                <a href="#evaluation" class="px-2.5 py-1.5 rounded-full hover:bg-brand-red hover:text-white transition-all-300">🏆 ติดตามผล</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white text-xl font-bold shadow-md shadow-teal-500/20">
+                        <i class="fa-solid fa-vial-virus"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold text-slate-800 tracking-tight">Cos<span class="text-teal-600">MD</span></span>
+                        <span class="block text-[10px] font-semibold text-slate-500 tracking-wider">COSMED PLUS CO., LTD.</span>
+                    </div>
+                </div>
 
-    <!-- Main Header Banner (Hero) -->
-    <header class="custom-gradient text-white py-20 px-4 relative overflow-hidden">
-        <!-- Abstract Background Shapes -->
-        <div class="absolute -top-10 -right-10 w-96 h-96 bg-brand-brightRed opacity-10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-20 -left-10 w-80 h-80 bg-brand-red opacity-15 rounded-full blur-3xl pointer-events-none"></div>
-        
-        <!-- Molecular SVG decoration background -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none flex justify-center items-center">
-            <svg class="w-full h-full max-w-4xl" viewBox="0 0 800 400" fill="none" stroke="currentColor">
-                <circle cx="100" cy="100" r="10" stroke-width="2"/>
-                <circle cx="200" cy="150" r="15" stroke-width="2"/>
-                <circle cx="300" cy="120" r="8" stroke-width="2"/>
-                <circle cx="450" cy="220" r="20" stroke-width="2"/>
-                <line x1="110" y1="105" x2="185" y2="145" stroke-width="1.5"/>
-                <line x1="215" y1="145" x2="292" y2="124" stroke-width="1.5"/>
-                <line x1="308" y1="125" x2="432" y2="208" stroke-width="1.5"/>
-            </svg>
-        </div>
+                <!-- Nav Menu - 8 Chapters -->
+                <nav class="hidden lg:flex space-x-1 text-xs font-semibold text-slate-600">
+                    <a href="#section1" class="px-2.5 py-2 rounded-lg hover:text-teal-600 hover:bg-teal-50 transition">1. บทนำ</a>
+                    <a href="#section2" class="px-2.5 py-2 rounded-lg hover:text-teal-600 hover:bg-teal-50 transition">2. บริบทตลาด & คู่แข่ง</a>
+                    <a href="#section3" class="px-2.5 py-2 rounded-lg hover:text-teal-600 hover:bg-teal-50 transition">3. กลยุทธ์ธุรกิจ</a>
+                    <a href="#section4" class="px-2.5 py-2 rounded-lg hover:text-teal-600 hover:bg-teal-50 transition">4. แผนดำเนินงาน</a>
+                    <a href="#section5" class="px-2.5 py-2 rounded-lg hover:text-teal-600 hover:bg-teal-50 transition">5. แผนการเงิน & Simulator</a>
+                    <a href="#section6" class="px-2.5 py-2 rounded-lg hover:text-teal-600 hover:bg-teal-50 transition">6. จัดสรรทรัพยากร</a>
+                    <a href="#section7" class="px-2.5 py-2 rounded-lg hover:text-teal-600 hover:bg-teal-50 transition">7. บริหารความเสี่ยง</a>
+                    <a href="#section8" class="px-2.5 py-2 rounded-lg hover:text-teal-600 hover:bg-teal-50 transition">8. ติดตามและประเมินผล</a>
+                </nav>
 
-        <div class="max-w-6xl mx-auto text-center relative z-10">
-            <span class="bg-brand-red/30 text-white border border-brand-brightRed/30 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase font-manrope mb-4 inline-block">✨ 5-Year Strategic Master Plan (2026 - 2030)</span>
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 font-manrope leading-tight">
-                แผนกลยุทธ์ธุรกิจ 5 ปี <br>
-                <span class="bg-gradient-to-r from-[#FF3366] via-brand-brightRed to-white bg-clip-text text-transparent">บริษัท คอสเมด พลัส จำกัด</span>
-            </h1>
-            <p class="max-w-2xl mx-auto text-slate-300 text-sm md:text-base mb-8 leading-relaxed">
-                สรุปภาพรวมวิสัยทัศน์ โมเดลขับเคลื่อนธุรกิจ และโรดแมปการดำเนินงานของแบรนด์ <strong class="text-white font-semibold">CosMD+</strong> เวชสำอางที่จริงใจเพื่อผิวสวยสุขภาพดี ในราคาที่เข้าถึงได้จริง 🧴✨
-            </p>
-            
-            <div class="flex flex-wrap justify-center gap-4 text-xs md:text-sm text-slate-300 border-t border-slate-800/80 pt-8 max-w-4xl mx-auto">
-                <div class="flex items-center gap-2 bg-brand-charcoal/80 px-4 py-2 rounded-xl border border-brand-red/20 shadow-lg">
-                    <i class="fa-solid fa-flask-vial text-brand-brightRed text-lg"></i>
-                    <span>🧪 เวชสำอางไทยที่จริงใจ</span>
+                <div class="flex items-center space-x-2 bg-teal-50 text-teal-700 px-3 py-1.5 rounded-full border border-teal-200 text-xs font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                    <span>รวม Simulator คำนวณ CM</span>
                 </div>
-                <div class="flex items-center gap-2 bg-brand-charcoal/80 px-4 py-2 rounded-xl border border-brand-red/20 shadow-lg">
-                    <i class="fa-solid fa-user-md text-brand-brightRed text-lg"></i>
-                    <span>👨‍⚕️ แนะนำโดยแพทย์ผิวหนัง</span>
-                </div>
-                <div class="flex items-center gap-2 bg-brand-charcoal/80 px-4 py-2 rounded-xl border border-brand-red/20 shadow-lg">
-                    <i class="fa-solid fa-globe text-brand-brightRed text-lg"></i>
-                    <a href="https://www.cosmdskin.com" target="_blank" class="hover:text-white transition-colors">🌐 www.cosmdskin.com</a>
-                </div>
-            </div>
-            
-            <!-- Slogan Quote -->
-            <div class="mt-8 italic text-xs text-slate-400 font-manrope tracking-widest uppercase">
-                "A unique fusion of dermatological science and art"
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-12 flex flex-col gap-16">
-
-        <!-- SECTION 1: Introduction, Vision & Core Competency -->
-        <section id="intro" class="scroll-mt-24">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-manrope">SECTION 1</span>
-                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-black mt-1">🔬 1. บทนำ วิสัยทัศน์ และสมรรถนะหลักองค์กร</h2>
-                <div class="w-16 h-1 bg-brand-red mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <!-- Vision, Mission & Product Image Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 items-stretch">
-                <!-- Vision & Mission Column -->
-                <div class="lg:col-span-8 flex flex-col gap-8">
-                    <!-- Vision Panel -->
-                    <div class="bg-gradient-to-br from-brand-black to-brand-charcoal text-white rounded-2xl p-8 relative overflow-hidden shadow-xl border border-brand-red/20 neon-border flex-1 flex flex-col justify-between">
-                        <div class="absolute top-4 right-4 text-brand-red/10 text-9xl font-manrope font-extrabold select-none pointer-events-none">V</div>
-                        <div>
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-10 h-10 rounded-xl bg-brand-red/20 flex items-center justify-center text-brand-brightRed text-lg"><i class="fa-solid fa-eye"></i></div>
-                                <h3 class="text-xl font-bold font-manrope tracking-wide">👁️ วิสัยทัศน์ (Vision)</h3>
-                            </div>
-                            <p class="text-slate-100 text-lg md:text-xl font-semibold leading-relaxed mb-6">
-                                "ก้าวขึ้นเป็นแบรนด์เวชสำอางชั้นนำของประเทศไทย ที่โดดเด่นด้านความน่าเชื่อถือทางวิทยาศาสตร์ เพื่อส่งมอบผิวสวยสุขภาพดีให้กับทุกคน ในราคาที่เข้าถึงได้"
-                            </p>
-                        </div>
-                        <div class="text-xs text-brand-brightRed flex items-center gap-2 bg-brand-red/10 px-3 py-1.5 rounded-lg w-max border border-brand-red/20 font-semibold font-manrope">
-                            <i class="fa-solid fa-sparkles animate-pulse"></i> MASSTIGE COSMECEUTICAL LEADER
-                        </div>
+    <!-- Hero Banner -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 text-white py-16 lg:py-24">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#14b8a6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 space-y-5 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-teal-500/20 text-teal-300 border border-teal-500/30 px-4 py-1.5 rounded-full text-xs font-medium backdrop-blur-md">
+                        <i class="fa-solid fa-calculator text-teal-400"></i>
+                        <span>แผนกลยุทธ์ 5 ปี + Unit Economics Simulator</span>
                     </div>
-
-                    <!-- Mission Panel -->
-                    <div class="bg-white rounded-2xl p-8 shadow-md border border-slate-100 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-3 mb-6">
-                                <div class="w-10 h-10 rounded-xl bg-brand-softRed flex items-center justify-center text-brand-red text-lg"><i class="fa-solid fa-bullseye"></i></div>
-                                <h3 class="text-xl font-bold text-brand-black">🎯 พันธกิจหลัก (Mission)</h3>
-                            </div>
-                            <ul class="space-y-4 text-sm text-brand-grey">
-                                <li class="flex items-start gap-3">
-                                    <span class="w-5 h-5 rounded-full bg-brand-softRed text-brand-red flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 border border-brand-red/20">1</span>
-                                    <span>มุ่งวิจัยและพัฒนาสูตรแบบ <strong class="text-brand-black font-semibold">Effective Dose</strong> ปริมาณสารสกัดเข้มข้นตรงตามงานวิจัยเห็นผลลัพธ์จริง 🧪</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <span class="w-5 h-5 rounded-full bg-brand-softRed text-brand-red flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 border border-brand-red/20">2</span>
-                                    <span>สร้างมาตรฐานความปลอดภัยสูงสุดด้วยการส่งตรวจ <strong class="text-brand-black font-semibold">Hypoallergenic Tested</strong> ทุกผลิตภัณฑ์ 🛡️</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <span class="w-5 h-5 rounded-full bg-brand-softRed text-brand-red flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 border border-brand-red/20">3</span>
-                                    <span>มอบความรู้ที่โปร่งใสและตรงตามข้อเท็จจริง (<strong class="text-brand-black font-semibold">Educational Sharing</strong>) ให้แก่ผู้บริโภค 💡</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <span class="w-5 h-5 rounded-full bg-brand-softRed text-brand-red flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 border border-brand-red/20">4</span>
-                                    <span>ขยายความร่วมมือกับพาร์ทเนอร์ร้านขายยา คลินิก เพื่อขยายความน่าเชื่อถือ 🏥</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product Image Column -->
-                <div class="lg:col-span-4 bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col justify-between items-center text-center">
-                    <div class="w-full h-full flex flex-col justify-between">
-                        <span class="text-xs font-bold text-brand-red uppercase tracking-wider mb-3 block">🧪 PRODUCT HIGHLIGHT</span>
-                        <div class="relative overflow-hidden rounded-xl border border-slate-100 shadow-inner flex-1 mb-4 flex items-center justify-center">
-                            <img src="cosmd_product_serum.jpg" alt="CosMD+ Cellular Repair Serum" class="object-cover w-full h-full hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-brand-black text-sm mb-1">CosMD+ Cellular Repair Serum</h4>
-                            <p class="text-[11px] text-brand-grey leading-relaxed">
-                                สกินแคร์เวชสำอางที่ได้รับการพิสูจน์ทางวิทยาศาสตร์แล้วว่าเห็นผลจริง ปลอดภัย และราคาเข้าถึงได้ 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Core Competencies Infographic Cards -->
-            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
-                <h3 class="text-center font-bold text-brand-black mb-6 text-base tracking-wide uppercase"><i class="fa-solid fa-gem text-brand-red mr-2"></i>💎 สมรรถนะหลักขององค์กร (Core Competencies)</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-brand-lightGrey rounded-xl p-5 border border-slate-100 hover:scale-[1.02] transition-transform duration-300 hover:shadow-md">
-                        <div class="w-12 h-12 rounded-2xl bg-brand-softRed text-brand-red flex items-center justify-center text-xl mb-4 shadow-sm border border-brand-red/10"><i class="fa-solid fa-microscope"></i></div>
-                        <h4 class="font-bold text-brand-black mb-2">🔬 Science-based Skincare</h4>
-                        <p class="text-xs text-brand-grey leading-relaxed">
-                            คิดค้น วิจัย และพัฒนาสูตรร่วมกับทีมแพทย์ผิวหนังและผู้เชี่ยวชาญเฉพาะทาง มีงานวิจัยทางวิทยาศาสตร์รองรับในทุกองค์ประกอบส่วนผสม
-                        </p>
-                    </div>
-                    <div class="bg-brand-lightGrey rounded-xl p-5 border border-slate-100 hover:scale-[1.02] transition-transform duration-300 hover:shadow-md">
-                        <div class="w-12 h-12 rounded-2xl bg-brand-softRed text-brand-red flex items-center justify-center text-xl mb-4 shadow-sm border border-brand-red/10"><i class="fa-solid fa-vial"></i></div>
-                        <h4 class="font-bold text-brand-black mb-2">🧪 Effective Dose</h4>
-                        <p class="text-xs text-brand-grey leading-relaxed">
-                            ไม่ใส่สารสกัดเพื่อหวังผลทางการตลาด แต่เลือกใส่สัดส่วนความเข้มข้นที่เห็นผลจริงและได้รับการรับรองในงานวิจัย โดยไม่สร้างสารเคมีตกค้าง
-                        </p>
-                    </div>
-                    <div class="bg-brand-lightGrey rounded-xl p-5 border border-slate-100 hover:scale-[1.02] transition-transform duration-300 hover:shadow-md">
-                        <div class="w-12 h-12 rounded-2xl bg-brand-softRed text-brand-red flex items-center justify-center text-xl mb-4 shadow-sm border border-brand-red/10"><i class="fa-solid fa-hand-holding-heart"></i></div>
-                        <h4 class="font-bold text-brand-black mb-2">🛡️ Hypoallergenic & Trust</h4>
-                        <p class="text-xs text-brand-grey leading-relaxed">
-                            เน้นการดูแลสกินแคร์ที่ปราศจากสารกระตุ้นการระคายเคืองและไม่อุดตัน (Non-Comedogenic) รองรับผิวบอบบางและแพ้ง่ายที่สุด
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: Business Context & Target Market -->
-        <section id="market" class="scroll-mt-24">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-manrope">SECTION 2</span>
-                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-black mt-1">📊 2. บริบทธุรกิจ กลุ่มเป้าหมาย และการวางตำแหน่งแบรนด์</h2>
-                <div class="w-16 h-1 bg-brand-red mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-                <!-- Market & Bargaining Analysis -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-4 border-b border-slate-100 pb-3">
-                            <i class="fa-solid fa-magnifying-glass-chart text-brand-red text-lg"></i>
-                            <h3 class="font-bold text-brand-black">🔍 บริบทตลาด & อำนาจต่อรอง</h3>
-                        </div>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="text-xs font-semibold text-brand-red mb-1 tracking-wider uppercase">การเปลี่ยนแปลงตลาด (Skintellectuals)</h4>
-                                <p class="text-xs text-brand-grey leading-relaxed">
-                                    ผู้บริโภคยุคใหม่ฉลาดเลือก ศึกษาข้อมูลส่วนประกอบ (Active Ingredients) ก่อนซื้อ มีแนวโน้มการเติบโตของเวชสำอางและคลินิกผิวพรรณสูงขึ้นอย่างรวดเร็ว
-                                </p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-semibold text-brand-red mb-1 tracking-wider uppercase">อำนาจต่อรองผู้ซื้อ (Bargaining Power)</h4>
-                                <div class="flex items-center gap-2 mb-1.5">
-                                    <span class="bg-brand-softRed text-brand-red px-2 py-0.5 rounded text-xs font-bold border border-brand-red/20">⚖️ ปานกลาง - สูง</span>
-                                    <span class="text-[11px] text-slate-400">Low Switching Cost</span>
-                                </div>
-                                <p class="text-xs text-brand-grey leading-relaxed">
-                                    ผู้ซื้อย้ายแบรนด์ได้ง่ายเพราะมีทางเลือกมาก แต่ CosMD+ ลดทอนความเสี่ยงนี้ด้วยการทำสูตร <strong class="text-brand-black font-semibold">Effective Dose</strong> ที่เห็นผลต่างชัดเจนจนเกิด Loyalty สูง 📈
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Target Persona Infographic -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
-                    <div class="flex items-center gap-2.5 mb-4 border-b border-slate-100 pb-3">
-                        <i class="fa-solid fa-users text-brand-red text-lg"></i>
-                        <h3 class="font-bold text-brand-black">👥 กลุ่มเป้าหมาย (Target Market)</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <!-- Primary Target -->
-                        <div class="bg-brand-softRed p-4 rounded-xl border border-brand-red/20">
-                            <div class="flex justify-between items-center mb-1.5">
-                                <span class="text-xs font-bold text-brand-red uppercase tracking-wide">กลุ่มเป้าหมายหลัก (Core Target)</span>
-                                <span class="bg-brand-red text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Primary</span>
-                            </div>
-                            <h4 class="font-bold text-brand-black text-sm mb-1">กลุ่มวัยรุ่น - วัยเริ่มทำงาน (อายุ 18-35 ปี) 🧑‍🎓👩‍💻</h4>
-                            <p class="text-xs text-brand-grey">ผู้ประสบปัญหาสิว ผิวมัน รูขุมขนกว้าง ผิวแพ้ง่าย ต้องการสกินแคร์ที่แก้ปัญหาตรงจุดและคุ้มค่าราคา</p>
-                        </div>
-                        <!-- Secondary Target -->
-                        <div class="bg-brand-lightGrey p-4 rounded-xl border border-slate-100">
-                            <div class="flex justify-between items-center mb-1.5">
-                                <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">กลุ่มเป้าหมายรอง (Secondary)</span>
-                                <span class="bg-slate-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Secondary</span>
-                            </div>
-                            <h4 class="font-bold text-brand-black text-sm mb-1">กลุ่มผู้บริหาร/วัยกลางคน (อายุ 25 ปีขึ้นไป) 💼👔</h4>
-                            <p class="text-xs text-brand-grey">กลุ่มที่มีความกังวลด้านริ้วรอย (Anti-aging) ฝ้ากระ และต้องการบำรุงผิวกายอย่างกระจ่างใสอย่างล้ำลึก</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Brand Positioning Model -->
-                <div class="bg-gradient-to-br from-brand-black to-brand-charcoal text-white rounded-2xl p-6 shadow-md border border-brand-red/20 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-4 border-b border-slate-800 pb-3">
-                            <i class="fa-solid fa-crosshairs text-brand-brightRed text-lg"></i>
-                            <h3 class="font-bold font-manrope">📍 Brand Positioning</h3>
-                        </div>
-                        <div class="text-center py-4 bg-brand-red/10 rounded-xl border border-brand-red/30 mb-4">
-                            <div class="text-xs text-brand-brightRed uppercase font-semibold font-manrope tracking-wider">Concept</div>
-                            <div class="text-xl font-bold mt-1 text-white">🌿 Honest Cosmeceutical</div>
-                            <div class="text-[11px] text-slate-300 mt-1">"คุณภาพเวชสำอางพรีเมียม ในราคาที่ใครก็เอื้อมถึง"</div>
-                        </div>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            วางตำแหน่งสกินแคร์ในกลุ่ม <strong class="text-white font-semibold">Masstige</strong> (Mass + Prestige) มีความน่าเชื่อถือทางวิทยาศาสตร์สูง ปราศจากสารเคมีอันตราย แต่คงราคาคุ้มค่าที่ทุกคนสามารถจัดซื้อได้จริงเป็นประจำ 🧴💰
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Positioning Graph & Science Illustration Grid -->
-            <div class="mt-8 bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                    <!-- 2D Brand Positioning Chart -->
-                    <div>
-                        <h3 class="font-bold text-brand-black mb-6 text-sm tracking-wide uppercase"><i class="fa-solid fa-chart-area text-brand-red mr-2"></i>📍 แผนภาพการวางตำแหน่งตลาด (Market Positioning)</h3>
-                        
-                        <div class="relative w-full aspect-square md:aspect-[4/3] bg-slate-55 border border-slate-200 rounded-xl p-4 md:p-8 overflow-hidden bg-slate-50 shadow-inner">
-                            <!-- Grid Lines -->
-                            <div class="absolute inset-0 grid grid-cols-2 grid-rows-2">
-                                <div class="border-r border-b border-dashed border-slate-200"></div>
-                                <div class="border-b border-dashed border-slate-200"></div>
-                                <div class="border-r border-dashed border-slate-200"></div>
-                                <div></div>
-                            </div>
-                            
-                            <!-- Y Axis (Scientific Credibility) -->
-                            <div class="absolute left-10 top-6 bottom-16 border-l-2 border-slate-300 flex flex-col justify-between">
-                                <div class="absolute -top-3.5 -left-1.5 text-slate-400"><i class="fa-solid fa-caret-up"></i></div>
-                                <div class="absolute top-1/2 left-2 transform -translate-y-1/2 -rotate-90 origin-left whitespace-nowrap text-[8px] md:text-[9px] text-slate-500 font-bold tracking-wide">ความน่าเชื่อถือวิทยาศาสตร์ (Credibility)</div>
-                                <span class="text-[9px] text-slate-400 font-bold ml-2">สูง (High)</span>
-                                <span class="text-[9px] text-slate-400 font-bold ml-2 mb-2">ต่ำ (Low)</span>
-                            </div>
-                            
-                            <!-- X Axis (Price) -->
-                            <div class="absolute left-10 right-10 bottom-16 border-b-2 border-slate-300 flex justify-between items-end">
-                                <span class="text-[9px] text-slate-400 font-bold mb-2">ประหยัด (Affordable)</span>
-                                <div class="absolute left-1/2 bottom-[-24px] transform -translate-x-1/2 whitespace-nowrap text-[8px] md:text-[9px] text-slate-500 font-bold tracking-wide">ราคา (Price)</div>
-                                <span class="text-[9px] text-slate-400 font-bold mb-2">พรีเมียม (Premium)</span>
-                                <div class="absolute -bottom-1.5 -right-2.5 text-slate-400"><i class="fa-solid fa-caret-right"></i></div>
-                            </div>
-                            
-                            <!-- Dots -->
-                            <!-- CosMD+ (Masstige: High Credibility, Affordable-Mid Price) -->
-                            <div class="absolute group cursor-pointer" style="left: 35%; bottom: 70%;">
-                                <div class="w-5 h-5 rounded-full bg-brand-red border-2 border-white shadow-lg animate-pulse flex items-center justify-center">
-                                    <div class="w-2 h-2 rounded-full bg-white"></div>
-                                </div>
-                                <span class="absolute left-6 -top-1 whitespace-nowrap bg-brand-black text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded shadow-lg border border-brand-red/30">CosMD+ (Masstige)</span>
-                                <!-- Tooltip -->
-                                <div class="hidden group-hover:block absolute left-0 top-7 z-20 w-52 bg-brand-black text-white border border-brand-red rounded-xl p-3 shadow-2xl text-[9px] leading-relaxed">
-                                    <strong class="text-brand-brightRed text-xs block mb-1">CosMD+ (Honest Cosmeceutical)</strong>
-                                    ยึดหลักวิทยาศาสตร์และสูตรเข้มข้นตรงตามงานวิจัย (Effective Dose) ในราคาเข้าถึงง่ายสำหรับทุกคน มอบความโปร่งใส ปลอดภัย และคุ้มค่าสูงสุด
-                                </div>
-                            </div>
-                            
-                            <!-- General Cosmetic Brand (Low Credibility, Low Price) -->
-                            <div class="absolute group cursor-pointer" style="left: 15%; bottom: 30%;">
-                                <div class="w-3.5 h-3.5 rounded-full bg-slate-400 border border-white shadow"></div>
-                                <span class="absolute left-5 -top-1 whitespace-nowrap text-slate-500 text-[8px] md:text-[9px] font-semibold bg-white/90 px-1.5 py-0.5 rounded border border-slate-200">แบรนด์สกินแคร์ทั่วไป</span>
-                            </div>
-                            
-                            <!-- Counter Brand (Mid Credibility, High Price) -->
-                            <div class="absolute group cursor-pointer" style="left: 70%; bottom: 50%;">
-                                <div class="w-3.5 h-3.5 rounded-full bg-slate-400 border border-white shadow"></div>
-                                <span class="absolute left-5 -top-1 whitespace-nowrap text-slate-500 text-[8px] md:text-[9px] font-semibold bg-white/90 px-1.5 py-0.5 rounded border border-slate-200">เคาน์เตอร์แบรนด์หรู</span>
-                            </div>
-                            
-                            <!-- Imported Clinic Brand (High Credibility, Very High Price) -->
-                            <div class="absolute group cursor-pointer" style="left: 82%; bottom: 80%;">
-                                <div class="w-3.5 h-3.5 rounded-full bg-slate-400 border border-white shadow"></div>
-                                <span class="absolute left-5 -top-1 whitespace-nowrap text-slate-500 text-[8px] md:text-[9px] font-semibold bg-white/90 px-1.5 py-0.5 rounded border border-slate-200">เวชสำอางคลินิกนำเข้า</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Skin Layer Scientific Illustration -->
-                    <div class="flex flex-col justify-between">
-                        <h3 class="font-bold text-brand-black mb-6 text-sm tracking-wide uppercase"><i class="fa-solid fa-microscope text-brand-red mr-2"></i>🧪 วิทยาศาสตร์ผิวหนังขั้นสูง (Dermal Repair Process)</h3>
-                        <div class="relative overflow-hidden rounded-xl border border-slate-200 shadow-sm flex-1 flex items-center justify-center bg-slate-50">
-                            <img src="cosmd_skin_analysis.jpg" alt="Dermal Repair Science Diagram" class="object-cover w-full h-full">
-                        </div>
-                        <p class="text-[10px] text-brand-grey mt-3 leading-relaxed">
-                            🔬 **การทำงานระดับเซลล์ผิว**: สูตรเฉพาะของ CosMD+ ได้รับการพัฒนาเพื่อซ่อมแซมชั้นผิว (Epidermis & Dermis) กระตุ้นคอลลาเจน และเสริมความแข็งแกร่งของเกราะป้องกันผิว (Skin Barrier Repair) ตามมาตรฐานแพทย์ผิวหนัง
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: Business & Growth Strategy (Ansoff Matrix) -->
-        <section id="strategy" class="scroll-mt-24">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-manrope">SECTION 3</span>
-                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-black mt-1">🚀 3. กลยุทธ์การเติบโตทางธุรกิจ (Ansoff Growth Matrix)</h2>
-                <p class="text-xs text-brand-grey mt-1 max-w-xl mx-auto">แผนที่นำทางนวัตกรรมการขยายตัวจาก 4 มิติกลยุทธ์ของ Ansoff Matrix (คลิกเพื่อสลับข้อมูลโต้ตอบ)</p>
-                <div class="w-16 h-1 bg-brand-red mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <!-- Interactive Ansoff Container -->
-            <div class="bg-white rounded-3xl p-6 md:p-8 shadow-md border border-slate-100">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                    <!-- Left: Interactive 2x2 Matrix UI -->
-                    <div class="lg:col-span-5 grid grid-cols-2 gap-4 h-full aspect-square max-w-md mx-auto w-full">
-                        <button onclick="switchAnsoff('penetration')" id="ansoff-btn-penetration" class="ansoff-btn active flex flex-col justify-between p-5 rounded-2xl bg-brand-lightGrey border-2 border-brand-red text-left transition-all-300 group hover:bg-brand-softRed">
-                            <div class="flex justify-between items-start w-full">
-                                <span class="text-[10px] font-bold text-brand-red bg-brand-softRed px-2 py-0.5 rounded border border-brand-red/20 uppercase tracking-wider font-manrope">Market Pen.</span>
-                                <i class="fa-solid fa-arrow-pointer text-brand-red group-hover:scale-110 transition-transform"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-extrabold text-sm md:text-base text-brand-black mb-1 leading-tight">📈 เจาะตลาดเดิม</h4>
-                                <span class="text-[10px] text-slate-400 font-semibold">สินค้าเดิม | ตลาดเดิม</span>
-                            </div>
-                        </button>
-                        
-                        <button onclick="switchAnsoff('product-dev')" id="ansoff-btn-product-dev" class="ansoff-btn flex flex-col justify-between p-5 rounded-2xl bg-brand-lightGrey border-2 border-transparent text-left transition-all-300 group hover:bg-brand-softRed">
-                            <div class="flex justify-between items-start w-full">
-                                <span class="text-[10px] font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded uppercase tracking-wider font-manrope">Product Dev.</span>
-                                <i class="fa-solid fa-flask text-slate-400 group-hover:scale-110 transition-transform"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-extrabold text-sm md:text-base text-brand-black mb-1 leading-tight">🧪 พัฒนาสินค้าใหม่</h4>
-                                <span class="text-[10px] text-slate-400 font-semibold">สินค้าใหม่ | ตลาดเดิม</span>
-                            </div>
-                        </button>
-                        
-                        <button onclick="switchAnsoff('market-dev')" id="ansoff-btn-market-dev" class="ansoff-btn flex flex-col justify-between p-5 rounded-2xl bg-brand-lightGrey border-2 border-transparent text-left transition-all-300 group hover:bg-brand-softRed">
-                            <div class="flex justify-between items-start w-full">
-                                <span class="text-[10px] font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded uppercase tracking-wider font-manrope">Market Dev.</span>
-                                <i class="fa-solid fa-earth-americas text-slate-400 group-hover:scale-110 transition-transform"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-extrabold text-sm md:text-base text-brand-black mb-1 leading-tight">🌐 พัฒนาตลาดใหม่</h4>
-                                <span class="text-[10px] text-slate-400 font-semibold">สินค้าเดิม | ตลาดใหม่</span>
-                            </div>
-                        </button>
-                        
-                        <button onclick="switchAnsoff('diversify')" id="ansoff-btn-diversify" class="ansoff-btn flex flex-col justify-between p-5 rounded-2xl bg-brand-lightGrey border-2 border-transparent text-left transition-all-300 group hover:bg-brand-softRed">
-                            <div class="flex justify-between items-start w-full">
-                                <span class="text-[10px] font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded uppercase tracking-wider font-manrope">Diversify</span>
-                                <i class="fa-solid fa-wand-magic-sparkles text-slate-400 group-hover:scale-110 transition-transform"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-extrabold text-sm md:text-base text-brand-black mb-1 leading-tight">✨ กระจายธุรกิจใหม่</h4>
-                                <span class="text-[10px] text-slate-400 font-semibold">สินค้าใหม่ | ตลาดใหม่</span>
-                            </div>
-                        </button>
-                    </div>
-
-                    <!-- Right: Content Display for Matrix Selection -->
-                    <div class="lg:col-span-7 flex flex-col justify-center">
-                        <div id="ansoff-content-panel" class="bg-brand-lightGrey/80 rounded-2xl p-6 border border-slate-100 min-h-[300px] flex flex-col justify-between transition-all duration-300 shadow-sm">
-                            <div>
-                                <div class="flex items-center gap-3 mb-4">
-                                    <div class="w-12 h-12 rounded-2xl bg-brand-softRed text-brand-red flex items-center justify-center text-xl shadow-inner border border-brand-red/10" id="ansoff-detail-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                                    <div>
-                                        <span class="text-xs text-brand-red uppercase font-bold font-manrope" id="ansoff-detail-subtitle">Market Penetration</span>
-                                        <h3 class="text-xl font-bold text-brand-black" id="ansoff-detail-title">กลยุทธ์การเจาะตลาดสกินแคร์เดิม</h3>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-brand-grey leading-relaxed mb-6" id="ansoff-detail-desc">
-                                    เน้นจัดทำเนื้อหาวิดีโอสั้นและการตลาดเชิงให้ความรู้ (Educational Content) เพื่อแนะนำส่วนผสมของ Niacinamide + Zinc PCA สยบสิวและคุมมัน จัดทำเซ็ต Bundle แบบครบวงจรเพื่อความสะดวกในการซื้อซ้ำอย่างมั่นใจ
-                                </p>
-                            </div>
-                            <div class="border-t border-slate-200 pt-4">
-                                <h4 class="text-xs font-bold text-brand-black uppercase mb-3 tracking-wide"><i class="fa-solid fa-bullseye text-brand-red mr-1.5"></i>📋 แผนการปฏิบัติงานจริง (Execution Steps):</h4>
-                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-brand-grey" id="ansoff-detail-bullets">
-                                    <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-red"></i> แคมเปญ TikTok Shop และเครือข่าย MCN</li>
-                                    <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-red"></i> ชุดจัดเซ็ต Hero Set ราคาคุ้มค่า</li>
-                                    <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-red"></i> การจ้าง Influencer สายสกินแคร์รีวิว</li>
-                                    <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-red"></i> ส่วนลดผู้ติดตามและระบบสะสมแต้ม</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: Operations & Innovation Strategy -->
-        <section id="operation" class="scroll-mt-24">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-manrope">SECTION 4</span>
-                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-black mt-1">⚙️ 4. แผนงานเชิงนวัตกรรมขับเคลื่อนการเติบโต</h2>
-                <div class="w-16 h-1 bg-brand-red mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <!-- Operations Timeline / Linked Pipeline -->
-            <div class="relative flex flex-col lg:flex-row justify-between items-stretch gap-8">
-                <!-- SVG connecting pipeline line (desktop only) -->
-                <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-brand-red via-brand-brightRed to-brand-grey transform -translate-y-1/2 z-0 opacity-30"></div>
-                
-                <!-- Product Innovation -->
-                <div class="flex-1 bg-white rounded-2xl p-6 shadow-md border border-slate-100 hover:shadow-xl hover:border-brand-red/30 transition-all-300 relative z-10 flex flex-col justify-between">
-                    <div>
-                        <div class="absolute -top-4 -right-4 w-12 h-12 rounded-2xl bg-brand-softRed text-brand-red flex items-center justify-center text-xl font-bold font-manrope border border-brand-red/20">1</div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-brand-softRed text-brand-red flex items-center justify-center text-lg"><i class="fa-solid fa-flask"></i></div>
-                            <h3 class="font-bold text-brand-black">🧪 Product Innovation</h3>
-                        </div>
-                        <p class="text-xs text-brand-grey leading-relaxed mb-4">
-                            พัฒนาและคัดสรรสูตรผลิตภัณฑ์โดยนำเทคโนโลยีขั้นสูงมาใช้ เช่น <strong class="text-brand-black font-semibold">Encapsulation</strong> เพื่อห่อหุ้มโมเลกุลสารสกัด และค่อยๆ ปลดปล่อยตัวยา (Active-Release) ทำให้ผิวระคายเคืองต่ำลง พร้อมสูตรและแพ็กเกจจิ้งยั่งยืน
-                        </p>
-                    </div>
-                    <div class="bg-brand-lightGrey p-3 rounded-lg border border-slate-100 mt-2">
-                        <span class="text-[10px] font-bold text-brand-red uppercase">🎯 Key Target</span>
-                        <p class="text-xs text-brand-black mt-0.5">เวชสำอางสูตร Triple Retinol 2% และอาหารเสริมบำรุงผิวแพทย์ผิวหนังแนะนำ</p>
-                    </div>
-                </div>
-
-                <!-- Process Innovation -->
-                <div class="flex-1 bg-white rounded-2xl p-6 shadow-md border border-slate-100 hover:shadow-xl hover:border-brand-red/30 transition-all-300 relative z-10 flex flex-col justify-between">
-                    <div>
-                        <div class="absolute -top-4 -right-4 w-12 h-12 rounded-2xl bg-brand-softRed text-brand-red flex items-center justify-center text-xl font-bold font-manrope border border-brand-red/20">2</div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-brand-softRed text-brand-red flex items-center justify-center text-lg"><i class="fa-solid fa-rotate"></i></div>
-                            <h3 class="font-bold text-brand-black">⚙️ Process Innovation</h3>
-                        </div>
-                        <p class="text-xs text-brand-grey leading-relaxed mb-4">
-                            นำเอาระบบ <strong class="text-brand-black font-semibold">Data Analytics & CRM</strong> มาขับเคลื่อนข้อมูลผู้บริโภค นำเสนอการบำรุงผิวเฉพาะบุคคล (Skincare Personalization) และวางระบบ ERP จัดการคลังสินค้าให้มีความฉลาด รวดเร็ว
-                        </p>
-                    </div>
-                    <div class="bg-brand-lightGrey p-3 rounded-lg border border-slate-100 mt-2">
-                        <span class="text-[10px] font-bold text-brand-red uppercase">🎯 Key Target</span>
-                        <p class="text-xs text-brand-black mt-0.5">เชื่อมโยงระบบ Inventory Management ซิงค์ข้อมูลข้ามช่องทาง Omnichannel</p>
-                    </div>
-                </div>
-
-                <!-- Market Innovation -->
-                <div class="flex-1 bg-white rounded-2xl p-6 shadow-md border border-slate-100 hover:shadow-xl hover:border-brand-red/30 transition-all-300 relative z-10 flex flex-col justify-between">
-                    <div>
-                        <div class="absolute -top-4 -right-4 w-12 h-12 rounded-2xl bg-brand-softRed text-brand-red flex items-center justify-center text-xl font-bold font-manrope border border-brand-red/20">3</div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-brand-softRed text-brand-red flex items-center justify-center text-lg"><i class="fa-solid fa-cart-shopping"></i></div>
-                            <h3 class="font-bold text-brand-black">📣 Market Innovation</h3>
-                        </div>
-                        <p class="text-xs text-brand-grey leading-relaxed mb-4">
-                            ดำเนินแผน <strong class="text-brand-black font-semibold">Co-Marketing Campaign</strong> มุ่งเน้นการสร้างสรรค์คอมมูนิตี้ให้ความรู้ด้านผิวหนังร่วมกับคลินิกและแพทย์ผู้เชี่ยวชาญ สร้างความร่วมมือกับเอเจนซี่และพันธมิตร MCN ชั้นนำ
-                        </p>
-                    </div>
-                    <div class="bg-brand-lightGrey p-3 rounded-lg border border-slate-100 mt-2">
-                        <span class="text-[10px] font-bold text-brand-red uppercase">🎯 Key Target</span>
-                        <p class="text-xs text-brand-black mt-0.5">จัดโปรโมชั่น และทำคอนเทนต์ "Skin Barrier Restoration" ร่วมกับหมอผิวหนังออนไลน์</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: Financial Projections -->
-        <section id="finance" class="scroll-mt-24">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-manrope">SECTION 5</span>
-                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-black mt-1">💰 5. แผนการเงินและการคาดการณ์กระแสรายเติบโต (S-Curve)</h2>
-                <div class="w-16 h-1 bg-brand-red mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <!-- Financial Layout Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                <!-- S-Curve Graph SVG -->
-                <div class="lg:col-span-8 bg-white rounded-3xl p-6 md:p-8 shadow-md border border-slate-100 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="font-bold text-brand-black text-base"><i class="fa-solid fa-chart-line text-brand-red mr-1.5"></i>📈 กราฟแนวโน้มรายได้ 5 ปี (พ.ศ. 2569 - 2573)</h3>
-                            <span class="bg-brand-softRed text-brand-red text-[10px] font-bold px-2 py-0.5 rounded border border-brand-red/20 uppercase font-manrope">S-Curve Projection</span>
-                        </div>
-                        
-                        <!-- Interactive S-Curve Graph -->
-                        <div class="w-full bg-brand-lightGrey/50 p-4 rounded-2xl border border-slate-200">
-                            <svg viewBox="0 0 600 280" class="w-full h-auto" id="scurve-chart">
-                                <defs>
-                                    <linearGradient id="scurve-gradient" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="#CD0404" stop-opacity="0.3"/>
-                                        <stop offset="100%" stop-color="#CD0404" stop-opacity="0.0"/>
-                                    </linearGradient>
-                                    <filter id="glow-red" x="-20%" y="-20%" width="140%" height="140%">
-                                        <feGaussianBlur stdDeviation="3" result="blur" />
-                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                    </filter>
-                                </defs>
-                                
-                                <!-- Grid Lines -->
-                                <line x1="50" y1="30" x2="550" y2="30" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
-                                <line x1="50" y1="80" x2="550" y2="80" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
-                                <line x1="50" y1="130" x2="550" y2="130" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
-                                <line x1="50" y1="180" x2="550" y2="180" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
-                                <line x1="50" y1="220" x2="550" y2="220" stroke="#cbd5e1" stroke-width="2"/>
-                                
-                                <!-- Area under path -->
-                                <path d="M 50 200 C 175 195, 225 140, 300 100 C 375 60, 425 35, 550 30 L 550 220 L 50 220 Z" fill="url(#scurve-gradient)"/>
-                                
-                                <!-- S-curve Path -->
-                                <path d="M 50 200 C 175 195, 225 140, 300 100 C 375 60, 425 35, 550 30" fill="none" stroke="#CD0404" stroke-width="4" filter="url(#glow-red)" stroke-linecap="round"/>
-                                
-                                <!-- Dots -->
-                                <circle cx="50" cy="200" r="7" fill="#ffffff" stroke="#CD0404" stroke-width="3" class="scurve-dot cursor-pointer transition-all duration-200 hover:r-9" data-year="2569" data-sales="รายได้หลักพึ่งพาออนไลน์" data-growth="0%" data-desc="ยอดขายเกือบทั้งหมดพึ่งพาคอมมูนิตี้และช่องทางออนไลน์ (Lazada, Shopee, TikTok) มีระดับกำไรต่อชิ้นสูง แต่มีความผันผวนด้านการรักษาระดับฐานผู้ซื้อซ้ำ"></circle>
-                                
-                                <circle cx="175" cy="190" r="7" fill="#ffffff" stroke="#CD0404" stroke-width="3" class="scurve-dot cursor-pointer transition-all duration-200 hover:r-9" data-year="2570" data-sales="เปิดตัวสกินแคร์กลุ่ม Retinol 2%" data-growth="+15%" data-desc="ริเริ่มเปิดตัวผลิตภัณฑ์สูตร Triple Retinol 2% สำหรับการบำรุงลึกแก้ปัญหาผิวและริ้วรอย พร้อมทดสอบในแล็บต่างประเทศ เสริมความน่าเชื่อถือ"></circle>
-                                
-                                <circle cx="300" cy="115" r="7" fill="#ffffff" stroke="#CD0404" stroke-width="3" class="scurve-dot cursor-pointer transition-all duration-200 hover:r-9" data-year="2571" data-sales="ขยายออฟไลน์ คลินิก & CLMV" data-growth="+55%" data-desc="กระจายจุดขายออฟไลน์ร่วมกับพันธมิตรคลินิกและเครือข่ายร้านขายยาทั่วกรุงเทพฯ และเริ่มต้นส่งออกไปยังประเทศเพื่อนบ้าน CLMV"></circle>
-                                
-                                <circle cx="425" cy="65" r="7" fill="#ffffff" stroke="#CD0404" stroke-width="3" class="scurve-dot cursor-pointer transition-all duration-200 hover:r-9" data-year="2572" data-sales="ขยายสู่ตลาด Men's care และอาหารเสริม" data-growth="+100%" data-desc="ขยายฐานลูกค้าสู่กลุ่ม Men Skincare และเพิ่มไลน์อาหารเสริมบำรุงผิว (Nutraceuticals) พัฒนาร่วมกับแพทย์สร้างยอดขายเพิ่มแบบครบวงจร"></circle>
-                                
-                                <circle cx="550" cy="30" r="7" fill="#ffffff" stroke="#CD0404" stroke-width="3" class="scurve-dot cursor-pointer transition-all duration-200 hover:r-9" data-year="2573" data-sales="เต็มรูปแบบ 150 สาขาทั่วภูมิภาค" data-growth="+150%" data-desc="บรรลุเป้าหมายการมีพันธมิตรจัดจำหน่ายออฟไลน์ คลินิก ร้านขายยา และตัวแทนจำหน่ายในต่างประเทศ รวมมากกว่า 150 สาขาทั่วภูมิภาค ผลักดันกำไรสะสมอย่างมั่นคง"></circle>
-                                
-                                <!-- X Axis Labels -->
-                                <text x="50" y="245" text-anchor="middle" class="font-sans font-bold text-[10px] fill-brand-grey">ปี 2569</text>
-                                <text x="175" y="245" text-anchor="middle" class="font-sans font-bold text-[10px] fill-brand-grey">ปี 2570</text>
-                                <text x="300" y="245" text-anchor="middle" class="font-sans font-bold text-[10px] fill-brand-grey">ปี 2571</text>
-                                <text x="425" y="245" text-anchor="middle" class="font-sans font-bold text-[10px] fill-brand-grey">ปี 2572</text>
-                                <text x="550" y="245" text-anchor="middle" class="font-sans font-bold text-[10px] fill-brand-grey">ปี 2573</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <p class="text-[11px] text-brand-grey mt-2 text-center bg-brand-lightGrey py-2 rounded-lg border border-slate-100">กระตุ้นด้วยกลยุทธ์นวัตกรรมและเปิดไลน์ผลิตภัณฑ์กลุ่ม Anti-aging & Nutraceuticals พร้อมขยายจุดจำหน่ายออฟไลน์ชั้นนำ</p>
-                </div>
-
-                <!-- Financial Analysis / Details Display -->
-                <div class="lg:col-span-4 bg-gradient-to-b from-brand-black to-brand-charcoal text-white rounded-3xl p-6 md:p-8 shadow-md border border-brand-red/20 flex flex-col justify-between self-stretch">
-                    <div id="scurve-info-panel">
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
-                            <span id="scurve-info-year" class="text-xs bg-brand-red px-2.5 py-1 rounded font-bold font-manrope">ปี 2569 (เริ่มต้น)</span>
-                            <span id="scurve-info-growth" class="text-xs text-brand-brightRed font-extrabold uppercase font-poppins">Growth: 0%</span>
-                        </div>
-                        <h4 id="scurve-info-sales" class="text-base font-bold mb-2">💵 รายได้หลักพึ่งพาออนไลน์</h4>
-                        <p id="scurve-info-desc" class="text-xs text-slate-300 leading-relaxed">
-                            ยอดขายเกือบทั้งหมดพึ่งพาคอมมูนิตี้และช่องทางออนไลน์ (Lazada, Shopee, TikTok) มีระดับกำไรต่อชิ้นสูง แต่มีความผันผวนด้านการรักษาระดับฐานผู้ซื้อซ้ำ
-                        </p>
-                    </div>
-                    <div class="border-t border-slate-800/80 pt-4 mt-4 text-[10px] text-slate-400">
-                        <i class="fa-solid fa-circle-info text-brand-brightRed mr-1.5"></i>เลื่อนเมาส์ผ่านจุดสีขาวบนกราฟเพื่อดูแผนแต่ละปีแบบโต้ตอบ
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 6: Resource Allocation & Team Matrix -->
-        <section id="resource" class="scroll-mt-24">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-manrope">SECTION 6</span>
-                <h2 class="text-3xl font-extrabold text-brand-black mt-1">📅 6. การจัดสรรงบประมาณและโครงสร้างความรับผิดชอบ</h2>
-                <div class="w-16 h-1 bg-brand-red mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                <!-- Pie Chart Budget Allocation -->
-                <div class="lg:col-span-5 bg-white rounded-3xl p-6 md:p-8 shadow-md border border-slate-100 flex flex-col justify-between items-center">
-                    <div class="w-full">
-                        <h3 class="font-bold text-brand-black mb-6 text-base text-center md:text-left"><i class="fa-solid fa-chart-pie text-brand-red mr-1.5"></i>🍕 สัดส่วนการลงทุนงบประมาณ (Budget Allocation)</h3>
-                        <div class="flex flex-col items-center gap-6">
-                            <!-- SVG Donut Chart -->
-                            <div class="relative w-48 h-48">
-                                <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md">
-                                    <circle cx="100" cy="100" r="70" fill="transparent" stroke="#f3f4f6" stroke-width="22"></circle>
-                                    
-                                    <!-- Slice 1: Marketing (45%) -> len: 197.9, offset: 0 -->
-                                    <circle cx="100" cy="100" r="70" fill="transparent" stroke="#CD0404" stroke-width="22"
-                                            stroke-dasharray="197.92 439.82" stroke-dashoffset="0"
-                                            class="donut-slice cursor-pointer transition-all duration-300 origin-center -rotate-90 hover:stroke-[25px]"
-                                            data-name="การตลาด & MCN" data-percent="45%"></circle>
-                                            
-                                    <!-- Slice 2: R&D (20%) -> len: 87.96, offset: -197.92 -->
-                                    <circle cx="100" cy="100" r="70" fill="transparent" stroke="#FF0032" stroke-width="22"
-                                            stroke-dasharray="87.96 439.82" stroke-dashoffset="-197.92"
-                                            class="donut-slice cursor-pointer transition-all duration-300 origin-center -rotate-90 hover:stroke-[25px]"
-                                            data-name="การวิจัยสูตร & Lab" data-percent="20%"></circle>
-                                            
-                                    <!-- Slice 3: Operations (20%) -> len: 87.96, offset: -285.88 -->
-                                    <circle cx="100" cy="100" r="70" fill="transparent" stroke="#4D4D4D" stroke-width="22"
-                                            stroke-dasharray="87.96 439.82" stroke-dashoffset="-285.88"
-                                            class="donut-slice cursor-pointer transition-all duration-300 origin-center -rotate-90 hover:stroke-[25px]"
-                                            data-name="ระบบ & ทีม ERP" data-percent="20%"></circle>
-                                            
-                                    <!-- Slice 4: Offline Channels (15%) -> len: 65.97, offset: -373.84 -->
-                                    <circle cx="100" cy="100" r="70" fill="transparent" stroke="#999999" stroke-width="22"
-                                            stroke-dasharray="65.97 439.82" stroke-dashoffset="-373.84"
-                                            class="donut-slice cursor-pointer transition-all duration-300 origin-center -rotate-90 hover:stroke-[25px]"
-                                            data-name="ออฟไลน์ & คลินิก" data-percent="15%"></circle>
-                                            
-                                    <!-- Center Text -->
-                                    <g class="pointer-events-none">
-                                        <text x="100" y="92" text-anchor="middle" class="font-sans font-bold fill-slate-400 text-[10px] uppercase tracking-wider">งบประมาณ</text>
-                                        <text id="donut-center-name" x="100" y="112" text-anchor="middle" class="font-sans font-bold fill-slate-800 text-[11px]">การตลาด & MCN</text>
-                                        <text id="donut-center-value" x="100" y="138" text-anchor="middle" class="font-manrope font-extrabold fill-brand-red text-xl">45%</text>
-                                    </g>
-                                </svg>
-                            </div>
-                            
-                            <ul class="w-full space-y-2 text-xs border-t border-slate-100 pt-4">
-                                <li class="flex items-center justify-between"><div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-brand-red"></div><span>📣 การตลาดอินฟลูเอนเซอร์และ MCN</span></div><span class="font-bold text-slate-800">45%</span></li>
-                                <li class="flex items-center justify-between"><div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-[#FF0032]"></div><span>🔬 การวิจัยสูตรและทดสอบในแล็บ</span></div><span class="font-bold text-slate-800">20%</span></li>
-                                <li class="flex items-center justify-between"><div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-brand-grey"></div><span>⚙️ พัฒนาระบบ Operation และทีม</span></div><span class="font-bold text-slate-800">20%</span></li>
-                                <li class="flex items-center justify-between"><div class="flex items-center gap-2"><div class="w-3 h-3 rounded bg-[#999999]"></div><span>🏥 บริหารช่องทางออฟไลน์ B2B & คลินิก</span></div><span class="font-bold text-slate-800">15%</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Responsibility Matrix Table -->
-                <div class="lg:col-span-7 bg-white rounded-3xl p-6 md:p-8 shadow-md border border-slate-100 flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-bold text-brand-black mb-4 text-base"><i class="fa-solid fa-people-group text-brand-red mr-1.5"></i>👔 โครงสร้างความรับผิดชอบ (Responsibility Matrix)</h3>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse text-xs">
-                                <thead>
-                                    <tr class="border-b border-slate-200">
-                                        <th class="py-3 text-slate-500 font-bold uppercase tracking-wider">ตำแหน่งผู้รับผิดชอบ</th>
-                                        <th class="py-3 text-slate-500 font-bold uppercase tracking-wider">บทบาทหน้าที่หลัก</th>
-                                        <th class="py-3 text-slate-500 font-bold uppercase tracking-wider">เป้าหมายความสำเร็จ (KPI)</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-100">
-                                    <tr>
-                                        <td class="py-4 font-semibold text-brand-black">📣 CMO (ผู้อำนวยการฝ่ายตลาด)</td>
-                                        <td class="py-4 text-brand-grey">ดูแลแคมเปญการสื่อสาร, พันธมิตร MCN, และยอดขาย E-commerce</td>
-                                        <td class="py-4 text-brand-red font-semibold">ยอดขายและทราฟฟิกออนไลน์ขยายตัว</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-4 font-semibold text-brand-black">🔬 R&D Lead (หัวหน้าฝ่ายวิจัย)</td>
-                                        <td class="py-4 text-brand-grey">วิจัยทดสอบสูตรประสิทธิภาพสูงร่วมกับแพทย์ และควบคุมความปลอดภัย</td>
-                                        <td class="py-4 text-brand-red font-semibold">สูตรได้รับการรับรองความปลอดภัย 100%</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-4 font-semibold text-brand-black">💼 Sales Director (หัวหน้าฝ่ายขาย)</td>
-                                        <td class="py-4 text-brand-grey">บริหารจุดจำหน่ายออฟไลน์ B2B, ร้านขายยา, และคลินิกผิวหนัง</td>
-                                        <td class="py-4 text-brand-red font-semibold">จำนวนสาขาพันธมิตรเพิ่มขึ้นตามเป้า</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="bg-brand-softRed p-4 rounded-xl border border-brand-red/20 mt-4 text-xs text-brand-grey leading-relaxed">
-                        <strong class="text-brand-black">ตารางการติดตามผล:</strong> จัดประชุมคณะกรรมการบริหารกลยุทธ์ (Strategy Committee) ทุกๆ สิ้นเดือนเพื่อประเมินผลการจัดสรรและปรับงบประมาณให้ยืดหยุ่นตามสภาพการขาย 📊
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 7: Risk Management -->
-        <section id="risk" class="scroll-mt-24">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-manrope">SECTION 7</span>
-                <h2 class="text-3xl font-extrabold text-brand-black mt-1">⚠️ 7. แผนการจัดสรรและบรรเทาความเสี่ยง (Risk Management)</h2>
-                <div class="w-16 h-1 bg-brand-red mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <!-- Risk Cards Layout -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Product Risk -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100 hover:scale-[1.01] transition-all-300 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
-                            <span class="text-[10px] font-bold text-brand-red bg-brand-softRed px-2 py-0.5 rounded border border-brand-red/20 uppercase font-manrope">Product Risk</span>
-                            <span class="bg-red-100 text-red-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-triangle-exclamation mr-1"></i>ความเสี่ยงสูง</span>
-                        </div>
-                        <h3 class="font-bold text-brand-black text-sm mb-1.5">🧪 ความเสี่ยงด้านสูตรผลิตภัณฑ์ระคายเคือง</h3>
-                        <p class="text-xs text-brand-grey leading-relaxed mb-4">
-                            ผู้ใช้งานบางกลุ่มเกิดอาการระคายเคืองต่อผิวหนัง หรือโมเลกุลสูตรครีมไม่มีความเสถียรเมื่อปะทะกับสภาพอากาศร้อน
-                        </p>
-                    </div>
-                    <div class="bg-brand-softRed p-3.5 rounded-xl border border-brand-red/20">
-                        <strong class="text-brand-red text-[11px] uppercase tracking-wider block">🛡️ แนวทางแก้ไขและควบคุม</strong>
-                        <p class="text-xs text-brand-black mt-0.5 font-medium">ส่งสูตรทดสอบโดยผู้เชี่ยวชาญ (Dermatologist Tested) ก่อนผลิตขาย และใช้บรรจุภัณฑ์แก้วทึบแสงรักษาโมเลกุลสาร</p>
-                    </div>
-                </div>
-
-                <!-- Process Risk -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100 hover:scale-[1.01] transition-all-300 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
-                            <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase font-manrope">Process Risk</span>
-                            <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-triangle-exclamation mr-1"></i>ความเสี่ยงปานกลาง</span>
-                        </div>
-                        <h3 class="font-bold text-brand-black text-sm mb-1.5">📦 ความเสี่ยงปัญหาการขนส่งสินค้าขาดสต๊อก</h3>
-                        <p class="text-xs text-brand-grey leading-relaxed mb-4">
-                            เกิดการขาดแคลนสต๊อกอย่างกะทันหันในจังหวะแคมเปญกระตุ้นยอดขายเป็นไวรัล ทำให้แบรนด์เสียโอกาสการขายและเสียความพึงพอใจลูกค้า
-                        </p>
-                    </div>
-                    <div class="bg-amber-50 p-3.5 rounded-xl border border-amber-200">
-                        <strong class="text-amber-700 text-[11px] uppercase tracking-wider block">⚙️ แนวทางแก้ไขและควบคุม</strong>
-                        <p class="text-xs text-slate-900 mt-0.5 font-medium">ใช้ระบบซอฟต์แวร์วิเคราะห์อุปสงค์และทำสัญญาสำรองสต๊อก (Buffer Stock) กับโรงงานพาร์ทเนอร์ล่วงหน้าอย่างปลอดภัย</p>
-                    </div>
-                </div>
-
-                <!-- Market Risk -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100 hover:scale-[1.01] transition-all-300 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
-                            <span class="text-[10px] font-bold text-brand-grey bg-slate-100 px-2 py-0.5 rounded uppercase font-manrope">Market Risk</span>
-                            <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-triangle-exclamation mr-1"></i>ความเสี่ยงปานกลาง</span>
-                        </div>
-                        <h3 class="font-bold text-brand-black text-sm mb-1.5">⚖️ ความเสี่ยงสินค้าลอกเลียนแบบและการตัดราคา</h3>
-                        <p class="text-xs text-brand-grey leading-relaxed mb-4">
-                            คู่ค้าบางรายหรือร้านค้านอกระบบทำการตัดราคากระทบภาพลักษณ์คุณค่าสินค้า รวมถึงมีความเสี่ยงโดนลอกเลียนแบบสูตรบรรจุภัณฑ์
-                        </p>
-                    </div>
-                    <div class="bg-brand-softRed p-3.5 rounded-xl border border-brand-red/20">
-                        <strong class="text-brand-red text-[11px] uppercase tracking-wider block">🛡️ แนวทางแก้ไขและควบคุม</strong>
-                        <p class="text-xs text-brand-black mt-0.5 font-medium">บังคับใช้นโยบายราคากลาง คุมตัวแทน และใช้ QR โค้ดตรวจสอบความถูกต้องของแท้บริเวณบรรจุภัณฑ์ของแบรนด์</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 8: Monitoring & Evaluation -->
-        <section id="evaluation" class="scroll-mt-24 mb-12">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-manrope">SECTION 8</span>
-                <h2 class="text-3xl font-extrabold text-brand-black mt-1">🏆 8. แผนการติดตามประเมินผลและดัชนีชี้วัดความสำเร็จ (KPIs)</h2>
-                <div class="w-16 h-1 bg-brand-red mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <!-- KPI Dashboard Style Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <!-- Financial KPI -->
-                <div class="bg-white rounded-2xl p-5 shadow-md border border-slate-100 flex items-center gap-4 hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-brand-softRed text-brand-red flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-coins"></i></div>
-                    <div>
-                        <span class="text-[10px] text-slate-400 font-bold tracking-wider uppercase block">Financial KPI</span>
-                        <h4 class="font-bold text-brand-black text-xs leading-tight mt-0.5">💰 ยอดขายรวมขยายตัว</h4>
-                        <span class="text-brand-red font-extrabold text-lg font-manrope">+30% - 50%</span> <span class="text-[10px] text-slate-400">YoY</span>
-                    </div>
-                </div>
-
-                <!-- Operations KPI -->
-                <div class="bg-white rounded-2xl p-5 shadow-md border border-slate-100 flex items-center gap-4 hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-brand-softRed text-brand-brightRed flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-circle-check"></i></div>
-                    <div>
-                        <span class="text-[10px] text-slate-400 font-bold tracking-wider uppercase block">Safety KPI</span>
-                        <h4 class="font-bold text-brand-black text-xs leading-tight mt-0.5">🛡️ มาตรฐานผ่านการทดสอบ</h4>
-                        <span class="text-brand-brightRed font-extrabold text-lg font-manrope">100%</span> <span class="text-[10px] text-slate-400">Hypoallergenic</span>
-                    </div>
-                </div>
-
-                <!-- Customer KPI -->
-                <div class="bg-white rounded-2xl p-5 shadow-md border border-slate-100 flex items-center gap-4 hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-brand-softRed text-brand-red flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-arrows-spin"></i></div>
-                    <div>
-                        <span class="text-[10px] text-slate-400 font-bold tracking-wider uppercase block">Customer KPI</span>
-                        <h4 class="font-bold text-brand-black text-xs leading-tight mt-0.5">🔁 ระดับการซื้อซ้ำ</h4>
-                        <span class="text-brand-red font-extrabold text-lg font-manrope">> 40%</span> <span class="text-[10px] text-slate-400">Repeat Rate</span>
-                    </div>
-                </div>
-
-                <!-- Expansion KPI -->
-                <div class="bg-white rounded-2xl p-5 shadow-md border border-slate-100 flex items-center gap-4 hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 rounded-xl bg-brand-softRed text-brand-brightRed flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-house-chimney-medical"></i></div>
-                    <div>
-                        <span class="text-[10px] text-slate-400 font-bold tracking-wider uppercase block">Distribution KPI</span>
-                        <h4 class="font-bold text-brand-black text-xs leading-tight mt-0.5">🏥 จุดจำหน่ายออฟไลน์</h4>
-                        <span class="text-brand-brightRed font-extrabold text-lg font-manrope">> 150</span> <span class="text-[10px] text-slate-400">จุดทั่วภูมิภาค</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Strategy Committee Panel -->
-            <div class="bg-gradient-to-r from-brand-black to-brand-charcoal text-white rounded-3xl p-6 md:p-8 shadow-md border border-brand-red/20 text-center relative overflow-hidden">
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-red opacity-10 rounded-full blur-2xl"></div>
-                <div class="relative z-10 max-w-2xl mx-auto">
-                    <div class="w-10 h-10 rounded-xl bg-brand-red/20 text-brand-brightRed flex items-center justify-center text-lg mx-auto mb-4 border border-brand-red/30"><i class="fa-solid fa-user-tie"></i></div>
-                    <h3 class="font-bold text-lg mb-2">👔 คณะกรรมการบริหารกลยุทธ์ (Strategy Committee)</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed mb-6">
-                        รับหน้าที่ควบคุม ติดตาม และประเมินผลการเคลื่อนไหวของแบรนด์ CosMD+ อย่างใกล้ชิด โดยมีการนำเครื่องมือรับฟังความคิดเห็นผู้บริโภคออนไลน์ (Social Listening Platform) มาวิเคราะห์การแข่งขันและเสียงตอบรับของตลาดแบบรายเดือน
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                        แผนกลยุทธ์ธุรกิจ 5 ปี <br>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-300 via-cyan-200 to-white">บริษัท คอสเมด พลัส จำกัด (แบรนด์ CosMD)</span>
+                    </h1>
+                    <p class="text-base text-slate-300 font-light max-w-2xl leading-relaxed">
+                        เวชสำอางที่จริงใจ <span class="text-teal-300 font-medium">"Honest Cosmeceutical"</span> โดดเด่นด้านวิทยาศาสตร์ มีระบบวิเคราะห์คำนวณ Unit Economics คำนวณ Contribution Margin แบบเรียลไทม์
                     </p>
-                    <div class="text-xs text-slate-400 border-t border-slate-800/80 pt-4 flex flex-col md:flex-row justify-center gap-6">
-                        <span><i class="fa-solid fa-clock text-brand-brightRed mr-1.5"></i>⏱️ ความถี่ประชุม: ทุกๆ สิ้นเดือน</span>
-                        <span><i class="fa-solid fa-pen-nib text-brand-brightRed mr-1.5"></i>🎯 เป้าหมายหลัก: ปรับแผนปฏิบัติงานให้ทันคู่แข่ง</span>
+                </div>
+
+                <div class="lg:col-span-4 grid grid-cols-2 gap-3 text-center">
+                    <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                        <div class="text-2xl font-black text-teal-300">100M</div>
+                        <div class="text-[11px] text-slate-300">เป้าหมายรายได้ (ปี 2031)</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                        <div class="text-2xl font-black text-cyan-300">20% YoY</div>
+                        <div class="text-[11px] text-slate-300">เติบโตเฉลี่ยต่อปี</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                        <div class="text-2xl font-black text-emerald-300">≥ 58%</div>
+                        <div class="text-[11px] text-slate-300">Gross Margin Target</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                        <div class="text-2xl font-black text-amber-300">≥ 35%</div>
+                        <div class="text-[11px] text-slate-300">CM Guardrail Target</div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-brand-black text-slate-400 py-12 px-4 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-brand-red to-brand-brightRed flex items-center justify-center font-bold text-white text-xs font-manrope">M+</div>
-                <div>
-                    <span class="font-manrope font-bold text-white text-base tracking-wider block">CosMD+</span>
-                    <span class="text-[10px] text-slate-500 block">Copyright &copy; 2026 CosMD Skin. All rights reserved.</span>
-                </div>
-            </div>
-            <div class="flex gap-6 text-xs font-medium">
-                <a href="https://www.cosmdskin.com" target="_blank" class="hover:text-brand-brightRed transition-colors">🌐 เว็บบล็อกทางการ</a>
-                <a href="#intro" class="hover:text-brand-brightRed transition-colors">🔝 ขึ้นบนสุด</a>
             </div>
         </div>
+    </section>
+
+    <!-- SECTION 1: บทนำ -->
+    <section id="section1" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-slate-200">
+            <span class="w-10 h-10 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center text-lg">1</span>
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">หัวข้อที่ 1: บทนำ (Introduction)</h2>
+                <p class="text-xs text-slate-500">ข้อมูลพื้นฐาน ประเภทธุรกิจ ผลิตภัณฑ์ สมรรถนะหลัก วิสัยทัศน์ พันธกิจ เป้าหมาย และโครงสร้างผู้บริหาร</p>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6 mb-8">
+            <!-- 1.1 ประเภทธุรกิจ -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <div class="text-teal-600 text-xl font-bold mb-2 flex items-center space-x-2">
+                    <i class="fa-solid fa-store"></i>
+                    <span>1.1 ประเภทธุรกิจ</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    ธุรกิจผลิตและจัดจำหน่ายผลิตภัณฑ์เวชสำอางบำรุงผิวพรรณ (Skincare & Cosmeceuticals) ภายใต้แบรนด์ <strong>"CosMD"</strong> เน้นการจัดจำหน่ายแบบ <strong>Omnichannel</strong> ทั้งช่องทางออนไลน์ (E-commerce) และออฟไลน์ (ร้านขายยา คลินิก และร้านพาร์ทเนอร์ในห้างสรรพสินค้าชั้นนำ)
+                </p>
+            </div>
+
+            <!-- 1.3 สมรรถนะหลัก -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <div class="text-teal-600 text-xl font-bold mb-2 flex items-center space-x-2">
+                    <i class="fa-solid fa-award"></i>
+                    <span>1.3 สมรรถนะหลัก (Core Competency)</span>
+                </div>
+                <ul class="text-xs text-slate-600 space-y-1.5">
+                    <li>• <strong>Science-based Skincare:</strong> วิจัยพัฒนาสูตรโดยทีมแพทย์และผู้เชี่ยวชาญผิวหนัง</li>
+                    <li>• <strong>Effective Dose Formulation:</strong> ใส่ Active Ingredients ใน % ที่มีงานวิจัยรองรับว่าเห็นผลจริง</li>
+                    <li>• <strong>Hypoallergenic:</strong> สูตรอ่อนโยนต่อผิวแพ้ง่าย ไม่ก่อให้เกิดการอุดตัน (Non-Comedogenic)</li>
+                </ul>
+            </div>
+
+            <!-- 1.6 & 1.7 เป้าหมายและการเติบโต -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <div class="text-teal-600 text-xl font-bold mb-2 flex items-center space-x-2">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <span>1.6 & 1.7 เป้าหมายและการเติบโต</span>
+                </div>
+                <div class="text-xs text-slate-600 space-y-2">
+                    <p>• <strong>ระยะสั้น (1 ปี):</strong> เพิ่มยอดขาย 20% สร้าง Brand Awareness ออนไลน์ และขยายจุดจำหน่ายออฟไลน์</p>
+                    <p>• <strong>ระยะยาว (3-5 ปี):</strong> ครองส่วนแบ่งตลาดกลุ่ม "เวชสำอางราคาจับต้องได้" และขยายสู่ South East Asia</p>
+                    <p>• <strong>รูปแบบการเติบโต:</strong> ออกผลิตภัณฑ์นวัตกรรมขยายฐานลูกค้าใหม่ ควบคู่กับการรักษาฐานลูกค้าเดิมให้ซื้อซ้ำ (Brand Royalty)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1.4 & 1.5 Vision & Mission -->
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-teal-900 to-slate-900 text-white shadow-md">
+                <h3 class="text-lg font-bold text-teal-300 mb-2 flex items-center space-x-2">
+                    <i class="fa-solid fa-eye"></i>
+                    <span>1.4 วิสัยทัศน์ (Vision)</span>
+                </h3>
+                <p class="text-sm text-slate-200 font-light leading-relaxed">
+                    "ก้าวขึ้นเป็นแบรนด์เวชสำอางชั้นนำของประเทศไทย ที่โดดเด่นด้านความน่าเชื่อถือทางวิทยาศาสตร์ เพื่อส่งมอบผิวสวยสุขภาพดีให้กับทุกคน ในราคาที่เข้าถึงได้"
+                </p>
+            </div>
+            <div class="p-6 rounded-2xl bg-teal-50 border border-teal-200 shadow-sm">
+                <h3 class="text-lg font-bold text-teal-900 mb-2 flex items-center space-x-2">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>1.5 พันธกิจ (Mission)</span>
+                </h3>
+                <ol class="text-xs text-slate-700 space-y-1.5 list-decimal list-inside">
+                    <li>มุ่งมั่นวิจัยพัฒนาผลิตภัณฑ์เวชสำอาง Effective Dose แก้ปัญหาผิวตรงจุด</li>
+                    <li>สร้างมาตรฐานความปลอดภัยสูงสุด ทุกชิ้นต้องผ่านการทดสอบการระคายเคือง</li>
+                    <li>ให้ความรู้ที่ถูกต้องเกี่ยวกับสกินแคร์และส่วนผสมแก่ผู้บริโภค</li>
+                    <li>ขยายเครือข่ายพันธมิตร ร้านขายยา คลินิก และห้างสรรพสินค้า</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- 1.2 Hero Products Showcase -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm mb-8">
+            <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center space-x-2">
+                <i class="fa-solid fa-pump-soap text-teal-600"></i>
+                <span>1.2 ผลิตภัณฑ์ในปัจจุบัน (ครอบคลุม Clean, Treat, Moisture, Sunscreen)</span>
+            </h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <span class="text-[10px] font-bold text-teal-700 bg-teal-100 px-2 py-0.5 rounded-full">Treat - Best Seller</span>
+                    <h4 class="font-bold text-xs text-slate-900 mt-2">10% Niacinamide + Zinc PCA</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Poreless and Acne Serum ลดอุดตัน คุมมัน กระชับรูขุมขน</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <span class="text-[10px] font-bold text-cyan-700 bg-cyan-100 px-2 py-0.5 rounded-full">Moisture - Best Seller</span>
+                    <h4 class="font-bold text-xs text-slate-900 mt-2">Ultra-Light Hydrating Gel</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Oil-Free Moisturizing Gel เติมความชุ่มชื้น เสริมเกราะป้องกันผิว</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Sunscreen - Best Seller</span>
+                    <h4 class="font-bold text-xs text-slate-900 mt-2">Sunscreen SPF 50+ PA++++</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">Soft Touch Daily UV Defense เนื้อบางเบา ไม่เหนอะหนะ</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <span class="text-[10px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full">Special Care</span>
+                    <h4 class="font-bold text-xs text-slate-900 mt-2">Retinol / Vit C / Body Serum</h4>
+                    <p class="text-[11px] text-slate-500 mt-1">2% Triple Retinol, 15% Vitamin C และ Ultra White Body Serum</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1.8 & 1.9 Management Structure -->
+        <div class="p-6 rounded-2xl bg-slate-900 text-white flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h3 class="text-base font-bold text-teal-300">1.8 & 1.9 คณะผู้บริหารและวิสัยทัศน์ในการบริหาร</h3>
+                <p class="text-xs text-slate-300 mt-1">บริหารงานโดยทีมผู้เชี่ยวชาญด้านผิวหนัง นักวิทยาศาสตร์ และนักการตลาดดิจิทัล ยึดหลัก <strong>"ความโปร่งใสจริงใจ (Honesty)"</strong> ในการให้ข้อมูลส่วนผสม และการบริหารแบบ <strong>Agile</strong> ตอบสนองเทรนด์ตลาดอย่างรวดเร็ว</p>
+            </div>
+            <div class="px-4 py-2 bg-teal-500/20 text-teal-300 border border-teal-500/30 rounded-xl text-xs font-semibold whitespace-nowrap">
+                Agile & Transparent Governance
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ภาพรวมบริบทของธุรกิจ + COMPETITIVE INTELLIGENCE -->
+    <section id="section2" class="py-16 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-slate-300">
+                <span class="w-10 h-10 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center text-lg">2</span>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">หัวข้อที่ 2: ภาพรวมบริบทของธุรกิจ & การวิเคราะห์คู่แข่ง</h2>
+                    <p class="text-xs text-slate-500">อุตสาหกรรม ตลาดเป้าหมาย อำนาจต่อรอง จุดยืนแบรนด์ Benchmark Comparison และ TOWS Matrix</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6 mb-12">
+                <!-- 2.1 & 2.2 Industry & Target Market -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                    <div>
+                        <h3 class="text-base font-bold text-slate-900 mb-1">2.1 ภาพรวมอุตสาหกรรม (Industry Context)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            ตลาดสกินแคร์ในไทยเติบโตต่อเนื่อง ผู้บริโภคยุคใหม่มีความรู้เรื่องส่วนผสม (เช่น Niacinamide, Retinol, BHA) เลือกใช้ผลิตภัณฑ์ที่แพทย์รับรอง (Dermatologist-recommended) และมองหาเวชสำอางที่ปลอดภัย
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-slate-900 mb-2">2.2 ตลาดเป้าหมาย (Target Market)</h3>
+                        <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3 rounded-xl bg-teal-50 border border-teal-100">
+                                <span class="font-bold text-teal-900 block mb-0.5">กลุ่มหลัก (Core Target): 18-35 ปี</span>
+                                <p class="text-slate-600">ชาย/หญิง ที่มีปัญหาสิว รอยดำ รูขุมขนกว้าง หรือผิวแพ้ง่าย</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="font-bold text-slate-800 block mb-0.5">กลุ่มรอง (Secondary Target): 35+ ปี</span>
+                                <p class="text-slate-600">ผู้ที่กังวลเรื่องริ้วรอย ฝ้า กระ และฟื้นฟูเกราะป้องกันผิว</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.3 & 2.4 Bargaining Power & Brand Positioning -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                    <div>
+                        <h3 class="text-base font-bold text-slate-900 mb-1">2.3 อำนาจต่อรองของผู้ซื้อ (Bargaining Power of Buyers)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            อยู่ในระดับ <strong>"ปานกลางถึงสูง"</strong> เนื่องจากมีคู่แข่งจำนวนมาก (Low Switching Cost) บริษัทลดอำนาจนี้โดยสร้าง Brand Loyalty ผ่านผลลัพธ์ที่เห็นผลจริงและความโปร่งใสเรื่องส่วนผสม (Effective Dose)
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-slate-900 mb-1">2.4 จุดยืนของธุรกิจ (Brand Positioning)</h3>
+                        <div class="p-3.5 rounded-xl bg-slate-900 text-white text-xs">
+                            <span class="text-teal-300 font-bold block mb-1">"Honest Cosmeceutical" (Masstige)</span>
+                            <p class="text-slate-300">วางตำแหน่งสินค้าคุณภาพเทียบเท่าเคาน์เตอร์แบรนด์หรือเวชสำอางนำเข้า (Science-based) แต่มีราคาสมเหตุสมผลที่ทุกคนเข้าถึงได้ (Affordable)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= 2.5 COMPETITIVE INTELLIGENCE & BENCHMARK & TOWS ================= -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white shadow-2xl border border-slate-800">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 pb-4 border-b border-slate-800 gap-2">
+                    <div>
+                        <span class="text-[11px] font-bold text-red-400 tracking-wider uppercase">COMPETITIVE INTELLIGENCE</span>
+                        <h3 class="text-2xl font-extrabold text-white">2.5 Benchmark Comparison & TOWS Matrix</h3>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-md">บทเรียนการ scale และ R&D จาก Dr.PONG รวมถึงวินัยช่องทางและ Working Capital จาก Karmarts</p>
+                </div>
+
+                <!-- 1. BENCHMARK COMPARISON GRID -->
+                <div class="grid lg:grid-cols-3 gap-6 mb-10">
+                    <!-- Card 1: Dr.PONG Benchmark -->
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-blue-500/50 transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-bold text-sm text-white flex items-center space-x-2">
+                                    <span class="w-3 h-3 rounded-full bg-blue-500 inline-block"></span>
+                                    <span>Dr.PONG Benchmark</span>
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[10px] font-semibold">Tech & Hero Scale</span>
+                            </div>
+                            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+                                เริ่มจาก Insight ปัญหาจริงผู้ใช้ ➔ สร้าง Hero Product ➔ ขยายออนไลน์สเกลสูง ➔ เพิ่ม R&D/IP ร่วมกับ Nabsolute ➔ ขยายหน้าร้านและอาเซียน
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-700/60 text-xs space-y-1.5">
+                            <div class="flex justify-between"><span class="text-slate-400">สิ่งที่ CosMD ควรยืม:</span> <strong class="text-blue-300">Science Translation + IP</strong></div>
+                            <div class="flex justify-between"><span class="text-slate-400">จุดต่างของ CosMD:</span> <strong class="text-red-400">เน้น Routine ไม่กระจาย SKU</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Karmarts Benchmark -->
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-amber-500/50 transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-bold text-sm text-white flex items-center space-x-2">
+                                    <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                                    <span>Karmarts Benchmark</span>
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-semibold">Channel & Capital</span>
+                            </div>
+                            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+                                สวิตช์ธุรกิจแกนหลัก ➔ เรียงลำดับช่องทาง (TT ➔ Franchise ➔ MT ➔ Export) ➔ วางโครงสร้างคลัง/งานบรรจุ ➔ หาพันธมิตรทุน (Marubeni)
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-700/60 text-xs space-y-1.5">
+                            <div class="flex justify-between"><span class="text-slate-400">ข้อควรระวัง (Caution):</span> <strong class="text-amber-400">Working Capital & Stock Age</strong></div>
+                            <div class="flex justify-between"><span class="text-slate-400">สิ่งที่ CosMD ควรยืม:</span> <strong class="text-amber-300">Channel Sequencing discipline</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: CosMD Strategy -->
+                    <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-red-500/50 transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-bold text-sm text-white flex items-center space-x-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                                    <span>CosMD Strategy</span>
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-300 border border-red-500/30 text-[10px] font-semibold">Focused Expansion</span>
+                            </div>
+                            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+                                ผสานความเชี่ยวชาญสารออกฤทธิ์ เข้ากับระบบ Routine ควบคู่กับการคุม Unit Economics, S&OP และ Stage-gate Investment ในทุกมิติ
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-700/60 text-xs space-y-1.5">
+                            <div class="flex justify-between"><span class="text-slate-400">North Star Metric:</span> <strong class="text-emerald-400">180d Repeat with Positive CM</strong></div>
+                            <div class="flex justify-between"><span class="text-slate-400">First 100 Days Goal:</span> <strong class="text-teal-300">Establish Truth Base</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. TOWS STRATEGIC ACTION MATRIX -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4 flex items-center space-x-2">
+                        <i class="fa-solid fa-table-cells-large text-teal-400"></i>
+                        <span>TOWS Strategic Action Matrix</span>
+                    </h4>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- SO Strategy -->
+                        <div class="p-5 rounded-2xl bg-teal-950/40 border border-teal-500/30 relative">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm text-teal-300">SO Strategy (Strengths + Opportunities)</h5>
+                                <span class="px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/40 text-[10px] font-bold">Priority 1</span>
+                            </div>
+                            <p class="text-xs text-slate-300 font-medium mb-3">
+                                ใช้ Hero + active-dose story ครอง Acne-Barrier Routine ในตลาดที่เติบโตต่อเนื่อง 10-11%
+                            </p>
+                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li>ออก Routine Bundles, Evidence Pages</li>
+                                <li>พัฒนา Pharmacist Education ในช่องทางร้านขายยา</li>
+                                <li>สร้าง Problem-led Content บน Social Commerce</li>
+                            </ul>
+                        </div>
+
+                        <!-- ST Strategy -->
+                        <div class="p-5 rounded-2xl bg-blue-950/40 border border-blue-500/30 relative">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm text-blue-300">ST Strategy (Strengths + Threats)</h5>
+                                <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/40 text-[10px] font-bold">Priority 2</span>
+                            </div>
+                            <p class="text-xs text-slate-300 font-medium mb-3">
+                                ใช้ความโปร่งใสและคุณภาพสูตรป้องกันสงครามราคาและคู่แข่งตัดราคา
+                            </p>
+                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li>กำหนด Price Corridor และ Promotion Guardrails</li>
+                                <li>จัดทำ Claims Matrix ป้องกันการอ้างเคลมเกินจริง</li>
+                                <li>วางระบบ Batch Traceability ป้องกันสินค้าปลอม</li>
+                            </ul>
+                        </div>
+
+                        <!-- WO Strategy -->
+                        <div class="p-5 rounded-2xl bg-amber-950/40 border border-amber-500/30 relative">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm text-amber-300">WO Strategy (Weaknesses + Opportunities)</h5>
+                                <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-bold">Priority 3</span>
+                            </div>
+                            <p class="text-xs text-slate-300 font-medium mb-3">
+                                แก้ปัญหา First-party Data ต่ำ และระบบ Proof เพื่อขยาย Omnichannel ยั่งยืน
+                            </p>
+                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li>ยืนยัน Legal Entity / IP Map ให้ชัดเจน</li>
+                                <li>เชื่อม CRM Identity + Consent (PDPA)</li>
+                                <li>วิเคราะห์ SKU P&L แยกรายช่องทาง</li>
+                            </ul>
+                        </div>
+
+                        <!-- WT Strategy -->
+                        <div class="p-5 rounded-2xl bg-red-950/40 border border-red-500/30 relative">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm text-red-300">WT Strategy (Weaknesses + Threats)</h5>
+                                <span class="px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-300 border border-red-500/40 text-[10px] font-bold">Priority 4</span>
+                            </div>
+                            <p class="text-xs text-slate-300 font-medium mb-3">
+                                ลดความซับซ้อนของพอร์ตและป้องกันเงินจมในสินค้าที่ไม่ทำกำไร
+                            </p>
+                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li>SKU Pruning ตัด SKU ยอดขายต่ำ/กำไรติดลบ</li>
+                                <li>ควบคุมการเปิดตัว NPD แบบจำกัดงบเป็น Tranche</li>
+                                <li>วางระบบ S&OP และ Inventory Triggers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: กลยุทธ์ธุรกิจ -->
+    <section id="section3" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-slate-200">
+            <span class="w-10 h-10 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center text-lg">3</span>
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">หัวข้อที่ 3: กลยุทธ์ธุรกิจ (Business Strategy)</h2>
+                <p class="text-xs text-slate-500">กลยุทธ์การเติบโตด้วย Diversification และปัจจัยขับเคลื่อนที่สำคัญ</p>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-6">
+            <!-- 3.1 Diversification Strategy -->
+            <div class="lg:col-span-7 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-3 flex items-center space-x-2">
+                    <i class="fa-solid fa-arrows-split-up-and-left text-teal-600"></i>
+                    <span>3.1 กลยุทธ์การเติบโตด้วย Diversification (สร้าง S-Curve ใหม่)</span>
+                </h3>
+                <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                    สร้างสินค้าใหม่ในตลาดใหม่ ก้าวข้ามจากแค่ "สกินแคร์ทาผิว" ไปสู่กลุ่มนวัตกรรมใหม่:
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4 text-xs">
+                    <div class="p-4 rounded-xl bg-teal-50 border border-teal-100">
+                        <span class="font-bold text-teal-900 block mb-1"><i class="fa-solid fa-pills mr-1"></i>Related Diversification</span>
+                        <p class="text-slate-600">พัฒนาอาหารเสริมเพื่อผิวพรรณ (Nutraceuticals) เช่น วิตามินกู้ผิว, คอลลาเจนสูตรแพทย์ ขายพ่วงสกินแคร์ เพื่อดูแลจากภายในสู่ภายนอก (Inside-Out)</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-cyan-50 border border-cyan-100">
+                        <span class="font-bold text-cyan-900 block mb-1"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i>Beauty Gadgets</span>
+                        <p class="text-slate-600">พัฒนาอุปกรณ์นวัตกรรมผลักครีม หรือเครื่องตรวจสภาพผิวอัจฉริยะขนาดพกพา ขายคู่กับเซรั่ม CosMD</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3.2 Key Drivers -->
+            <div class="lg:col-span-5 p-6 rounded-2xl bg-slate-900 text-white shadow-md">
+                <h3 class="text-base font-bold text-teal-300 mb-4 flex items-center space-x-2">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>3.2 ปัจจัยขับเคลื่อนที่สำคัญ (Key Drivers)</span>
+                </h3>
+                <div class="space-y-3 text-xs">
+                    <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                        <span class="font-bold text-white block mb-0.5">1. Quality & Innovation</span>
+                        <p class="text-slate-300">สูตรสกินแคร์ที่ทำงานได้ลึกและเห็นผลลัพธ์จริง</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                        <span class="font-bold text-white block mb-0.5">2. Distribution Channels</span>
+                        <p class="text-slate-300">กระจายสู่ Partner Shops, ร้านขายยา และ Shopee, TikTok, Lazada</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                        <span class="font-bold text-white block mb-0.5">3. Word-of-Mouth</span>
+                        <p class="text-slate-300">รีวิวจากผู้ใช้จริง และอินฟลูเอนเซอร์สายสกินแคร์ (Skinfluencer)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: แผนการดำเนินงาน -->
+    <section id="section4" class="py-16 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-slate-300">
+                <span class="w-10 h-10 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center text-lg">4</span>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">หัวข้อที่ 4: แผนการดำเนินงาน (Operational Plan)</h2>
+                    <p class="text-xs text-slate-500">กลยุทธ์ 3 Innovations (Product, Process, Market Innovation)</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                <!-- 4.1 Product Innovation -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-teal-700 bg-teal-100 px-2.5 py-1 rounded-full">4.1 Product Innovation</span>
+                        <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">"Outcome System for Sensitive Skin"</h3>
+                        <p class="text-xs text-slate-600 mb-3">สร้าง Hero Product, เน้น Routine Cluster และกำหนดเกณฑ์อนุมัติสินค้าใหม่:</p>
+                        <ul class="text-[11px] text-slate-600 space-y-1">
+                            <li>• แก้ปัญหาสำคัญของกลุ่มเป้าหมาย</li>
+                            <li>• อัตรากำไรขั้นต้น (Gross Margin) ≥ 58%</li>
+                            <li>• Contribution Margin หลังหักค่าแพลตฟอร์มเป็นบวก</li>
+                            <li>• มีแผนสร้างการซื้อซ้ำ ไม่พึ่งเปิดตัวครั้งเดียว</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4.2 Process Innovation -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-cyan-700 bg-cyan-100 px-2.5 py-1 rounded-full">4.2 Process Innovation</span>
+                        <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">"Simplify – Standardize – Digitize – Automate – Scale"</h3>
+                        <p class="text-xs text-slate-600 mb-3">ปรับกระบวนการตลอดห่วงโซ่ธุรกิจ เพิ่มความแม่นยำสต็อกและตัดสินใจจากข้อมูลจริง โดยใช้ 5 Feasibility Lenses:</p>
+                        <div class="grid grid-cols-2 gap-1.5 text-[10px] font-semibold text-slate-700">
+                            <span class="p-1.5 bg-slate-100 rounded">1. Product Feasibility</span>
+                            <span class="p-1.5 bg-slate-100 rounded">2. Market Feasibility</span>
+                            <span class="p-1.5 bg-slate-100 rounded">3. Financial Feasibility</span>
+                            <span class="p-1.5 bg-slate-100 rounded">4. Regulatory Feasibility</span>
+                            <span class="p-1.5 bg-slate-100 rounded col-span-2">5. Business Model Feasibility</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.3 Market Innovation -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">4.3 Market Innovation</span>
+                        <h3 class="text-base font-bold text-slate-900 mt-3 mb-2">"Win the Core – Expand to Adjacent – Prove the Region"</h3>
+                        <p class="text-xs text-slate-600 mb-3">สร้างแหล่งรายได้ใหม่จากกลุ่มลูกค้า ช่องทาง และพื้นที่ใหม่:</p>
+                        <ul class="text-[11px] text-slate-600 space-y-1">
+                            <li>• เป็นผู้นำตลาดสิวและผิวแพ้ง่าย</li>
+                            <li>• ลดการพึ่งพาเพียง Marketplace</li>
+                            <li>• ขยายสู่ออฟไลน์ ร้านขายยา คลินิก</li>
+                            <li>• ขยายสู่ต่างจังหวัด และตลาดอาเซียนอย่างมีเงื่อนไข</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: แผนด้านการเงิน + SIMULATOR -->
+    <section id="section5" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-slate-200">
+            <span class="w-10 h-10 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center text-lg">5</span>
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">หัวข้อที่ 5: แผนด้านการเงิน & เครื่องมือจำลอง (Financial Plan)</h2>
+                <p class="text-xs text-slate-500">การประเมินศักยภาพรายได้ กราฟประมาณการรายได้ และเครื่องมือจำลองเศรษฐศาสตร์ต่อคำสั่งซื้อ (Unit Economics Simulator)</p>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-6 items-center mb-12">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                    <h3 class="text-base font-bold text-slate-900 mb-2">5.1 การประเมินศักยภาพรายได้</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                        กำหนด Baseline Revenue โดยใช้รายได้สุทธิหลังหักส่วนลด คืนสินค้า และค่าธรรมเนียมช่องทาง เพื่อป้องกันการตั้งเป้าจากความรู้สึก
+                    </p>
+                    <div class="space-y-2 text-xs">
+                        <div class="p-2.5 rounded-lg bg-amber-50 border border-amber-200">
+                            <strong>1. Test Budget:</strong> ทดสอบสมมติฐานวงจำกัด
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-cyan-50 border border-cyan-200">
+                            <strong>2. Validation Budget:</strong> เมื่อมีหลักฐาน Demand & Unit Economics
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-teal-50 border border-teal-200">
+                            <strong>3. Scale Budget:</strong> อนุมัติเมื่อ Contribution Margin & Supply Chain ผ่านเกณฑ์
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revenue Chart -->
+            <div class="lg:col-span-7 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-1">5.2 แนวโน้มรายได้ภายหลังการใช้กลยุทธ์ (เติบโตปีละ 20%)</h3>
+                <p class="text-xs text-slate-500 mb-4">จาก 20.0 ล้านบาทในปี 2026 สู่ 100.0 ล้านบาทในปี 2031</p>
+                <div class="relative h-64">
+                    <canvas id="revenueChart5"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= 5.3 UNIT ECONOMICS SIMULATOR ================= -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white shadow-2xl border border-slate-800">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 pb-4 border-b border-slate-800 gap-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-300 flex items-center justify-center text-lg border border-teal-500/30">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-extrabold text-white">5.3 เครื่องมือจำลองเศรษฐศาสตร์ต่อคำสั่งซื้อ (Unit Economics Simulator)</h3>
+                        <p class="text-xs text-slate-400">คำนวณ Contribution Margin หลังหักส่วนลด ค่าธรรมเนียม ค่าส่ง ค่าการตลาด และ COGS</p>
+                    </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold whitespace-nowrap">
+                    CM Guardrail ≥ 35%
+                </span>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                <!-- Input Controls -->
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4 text-xs">
+                    <div>
+                        <label class="block font-semibold text-slate-300 mb-1.5">ราคาปกติ / Basket Size (บาท)</label>
+                        <input type="number" id="sim_price" value="590" oninput="calculateCM()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-medium focus:outline-none focus:border-teal-500 transition">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-300 mb-1.5">ส่วนลดเฉลี่ยโดยแบรนด์ (%)</label>
+                        <input type="number" id="sim_discount" value="15" oninput="calculateCM()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-medium focus:outline-none focus:border-teal-500 transition">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-300 mb-1.5">ต้นทุนสินค้า COGS (%)</label>
+                        <input type="number" id="sim_cogs" value="38" oninput="calculateCM()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-medium focus:outline-none focus:border-teal-500 transition">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-300 mb-1.5">ค่าธรรมเนียมแพลตฟอร์ม/บัตร (%)</label>
+                        <input type="number" id="sim_platform" value="12" oninput="calculateCM()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-medium focus:outline-none focus:border-teal-500 transition">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-300 mb-1.5">ค่าแพ็คและจัดส่งต่อออเดอร์ (บาท)</label>
+                        <input type="number" id="sim_shipping" value="35" oninput="calculateCM()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-medium focus:outline-none focus:border-teal-500 transition">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-300 mb-1.5">งบสื่อและ Affiliate ต่อออเดอร์ (%)</label>
+                        <input type="number" id="sim_mkt" value="18" oninput="calculateCM()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-medium focus:outline-none focus:border-teal-500 transition">
+                    </div>
+                </div>
+
+                <!-- Live Results Display Card -->
+                <div class="lg:col-span-5 bg-slate-800/90 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between space-y-6 shadow-inner">
+                    <div class="space-y-3 text-xs border-b border-slate-700 pb-4">
+                        <h4 class="font-bold text-slate-300 text-sm mb-2">ผลลัพธ์คำนวณกำไรขั้นต้นผันแปร</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400">Net Selling Price (ยอดขายสุทธิ):</span>
+                            <span id="res_net_price" class="font-bold text-white text-sm">฿501.50</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400">Variable Costs รวม:</span>
+                            <span id="res_var_cost" class="font-bold text-red-400 text-sm">฿376.02</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-2 border-t border-slate-700/60">
+                            <span class="font-bold text-slate-200">Contribution Margin (บาท):</span>
+                            <span id="res_cm_baht" class="font-bold text-emerald-400 text-base">฿125.48</span>
+                        </div>
+                    </div>
+
+                    <!-- CM % Big Display -->
+                    <div class="text-center p-5 rounded-xl bg-slate-900/90 border border-slate-700/80 space-y-2">
+                        <span class="text-xs text-slate-400 font-semibold block">Contribution Margin (%)</span>
+                        <div id="res_cm_pct" class="text-4xl font-black text-white tracking-tight">25.0%</div>
+                        <div id="res_status_badge" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                            เฝ้าระวัง (Iterate Required 25-35%)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: แผนด้านการจัดสรรทรัพยากร -->
+    <section id="section6" class="py-16 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-slate-300">
+                <span class="w-10 h-10 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center text-lg">6</span>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">หัวข้อที่ 6: แผนด้านการจัดสรรทรัพยากร (Resource Allocation Plan)</h2>
+                    <p class="text-xs text-slate-500">การจัดสรรเงินทุน บุคลากร เทคโนโลยี โรดแมป 5 ปี และโครงสร้างงบประมาณ</p>
+                </div>
+            </div>
+
+            <!-- Principle -->
+            <div class="p-4 rounded-xl bg-slate-900 text-white mb-6 text-center text-xs">
+                <span class="text-teal-300 font-bold text-sm block">"Fund the Core – Test Small – Scale the Winners – Stop the Losers"</span>
+                <span>ปกป้อง Hero Product ➔ จัดสรรงบตามหลักฐาน ➔ แบ่งเงินลงทุนเป็น Stage ➔ โยกงบประมาณทุกไตรมาส</span>
+            </div>
+
+            <!-- 6.3 5-Year Roadmap Table -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8">
+                <div class="p-4 bg-slate-800 text-white font-bold text-sm">6.3 ตารางการจัดสรรทรัพยากรและเป้าหมายรายปี (2027 - 2031)</div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-100 border-b border-slate-200 font-bold text-slate-700">
+                            <tr>
+                                <th class="py-3 px-4">ปี</th>
+                                <th class="py-3 px-4">เป้าหมายรายได้</th>
+                                <th class="py-3 px-4">เป้าหมายการจัดสรรทรัพยากร</th>
+                                <th class="py-3 px-4">จุดตรวจสอบสำคัญ (Checkpoint)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-600">
+                            <tr><td class="py-3 px-4 font-bold text-teal-700">2027</td><td class="py-3 px-4 font-bold">27.0 ล้านบาท</td><td class="py-3 px-4">ลงทุนใน Hero Product, Claims, CRM, Dashboard และ S&OP</td><td class="py-3 px-4">พิสูจน์ Contribution Margin และการซื้อซ้ำ</td></tr>
+                            <tr><td class="py-3 px-4 font-bold text-teal-700">2028</td><td class="py-3 px-4 font-bold">37.8 ล้านบาท</td><td class="py-3 px-4">เพิ่มทรัพยากรด้านร้านขายยา CRM และ Product Evidence</td><td class="py-3 px-4">ประเมินยอดขายต่อจุดขายและ CAC Payback</td></tr>
+                            <tr><td class="py-3 px-4 font-bold text-teal-700">2029</td><td class="py-3 px-4 font-bold">53.7 ล้านบาท</td><td class="py-3 px-4">เพิ่มงบช่องทางใหม่ Export Pilot และ Supply Chain</td><td class="py-3 px-4">ตลาดใหม่ต้องมี Sell-out และกำไรขั้นต้นตามเกณฑ์</td></tr>
+                            <tr><td class="py-3 px-4 font-bold text-teal-700">2030</td><td class="py-3 px-4 font-bold">74.1 ล้านบาท</td><td class="py-3 px-4">เพิ่มทรัพยากรเฉพาะตลาดและ SKU ที่ผ่านเกณฑ์</td><td class="py-3 px-4">ตรวจสอบ Capacity, Cash Flow และ EBITDA</td></tr>
+                            <tr class="bg-teal-50"><td class="py-3 px-4 font-bold text-teal-900">2031</td><td class="py-3 px-4 font-bold text-teal-900">100.0 ล้านบาท</td><td class="py-3 px-4">สร้างทีมภูมิภาค ระบบอัตโนมัติ และกำลังรองรับการเติบโต</td><td class="py-3 px-4">มีตลาดอาเซียนที่มีกำไรอย่างน้อย 2 ประเทศ</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 6.4 & 6.5 Responsibilities & Budget Structure Chart -->
+            <div class="grid lg:grid-cols-12 gap-6">
+                <!-- 6.4 Responsibilities -->
+                <div class="lg:col-span-6 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-bold text-slate-900 mb-3">6.4 บทบาทความรับผิดชอบ (Responsibility Matrix)</h3>
+                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                        <div class="p-2 bg-slate-50 rounded"><strong class="text-teal-800">CEO:</strong> อนุมัติเป้าหมาย/งบประมาณ</div>
+                        <div class="p-2 bg-slate-50 rounded"><strong class="text-teal-800">Strategy/FP&A:</strong> รวมแผน & Dashboard</div>
+                        <div class="p-2 bg-slate-50 rounded"><strong class="text-teal-800">Product Lead:</strong> Roadmap & Stage-Gate</div>
+                        <div class="p-2 bg-slate-50 rounded"><strong class="text-teal-800">Marketing Lead:</strong> หาลูกค้า, CRM, CAC</div>
+                        <div class="p-2 bg-slate-50 rounded"><strong class="text-teal-800">Supply Chain/QA:</strong> Forecast, Stock, Claims</div>
+                        <div class="p-2 bg-slate-50 rounded"><strong class="text-teal-800">Channel Lead:</strong> ร้านขายยา & ต่างประเทศ</div>
+                    </div>
+                </div>
+
+                <!-- 6.5 Budget Structure Chart -->
+                <div class="lg:col-span-6 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-bold text-slate-900 mb-1">6.5 งบประมาณที่ใช้กับแผนทรัพยากร (% Net Revenue)</h3>
+                    <p class="text-[11px] text-slate-500 mb-3">เปรียบเทียบสัดส่วนงบประมาณปี 2027, 2029, 2031</p>
+                    <div class="relative h-48">
+                        <canvas id="budgetChart6"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: แผนการบริหารด้านความเสี่ยง -->
+    <section id="section7" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-slate-200">
+            <span class="w-10 h-10 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center text-lg">7</span>
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">หัวข้อที่ 7: แผนการบริหารด้านความเสี่ยง (Risk Management Plan)</h2>
+                <p class="text-xs text-slate-500">การบริหารความเสี่ยงด้าน Product, Process และ Market Innovation</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- 7.1 Product Risk -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <span class="text-xs font-bold text-red-700 bg-red-100 px-2.5 py-1 rounded-full">7.1 Product Innovation Risk</span>
+                <h3 class="text-sm font-bold text-slate-900 mt-3 mb-1">ความเสี่ยงเรื่องการแพ้/เสถียรภาพ</h3>
+                <p class="text-xs text-slate-600 mb-3">ลูกค้าแพ้สารสกัดใหม่ หรือส่วนผสมไม่เสถียร</p>
+                <div class="p-3 bg-teal-50 border border-teal-100 rounded-xl text-xs text-teal-900">
+                    <strong>แนวทางบริหาร:</strong> ส่งทดสอบ Dermatologist Tested ทุกครั้งก่อนจำหน่าย ใช้บรรจุภัณฑ์ทึบแสง และมีทีมตอบคำถามลูกค้า
+                </div>
+            </div>
+
+            <!-- 7.2 Process Risk -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <span class="text-xs font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-full">7.2 Process Innovation Risk</span>
+                <h3 class="text-sm font-bold text-slate-900 mt-3 mb-1">ความเสี่ยงจากการเปลี่ยนแปลงรวดเร็ว</h3>
+                <p class="text-xs text-slate-600 mb-3">อาจรบกวนงานประจำ หรือเกิดข้อผิดพลาดด้านข้อมูล/PDPA</p>
+                <div class="p-3 bg-teal-50 border border-teal-100 rounded-xl text-xs text-teal-900">
+                    <strong>แนวทางบริหาร:</strong> ยึดหลัก "Design – Pilot – Validate – Rollout – Monitor" ทดลองก่อนขยายผล
+                </div>
+            </div>
+
+            <!-- 7.3 Market Risk -->
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <span class="text-xs font-bold text-cyan-700 bg-cyan-100 px-2.5 py-1 rounded-full">7.3 Market Innovation Risk</span>
+                <h3 class="text-sm font-bold text-slate-900 mt-3 mb-1">ความเสี่ยงการตัดราคา & สินค้าปลอม</h3>
+                <p class="text-xs text-slate-600 mb-3">การตัดราคาออนไลน์ ขัดแย้งช่องทาง หรือสินค้าลอกเลียนแบบ</p>
+                <div class="p-3 bg-teal-50 border border-teal-100 rounded-xl text-xs text-teal-900">
+                    <strong>แนวทางบริหาร:</strong> ยึด "Select – Test – Validate – Localize – Scale", คุมราคาเข้มงวด (Price Control)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: การติดตามและประเมินผล -->
+    <section id="section8" class="py-16 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-slate-800">
+                <span class="w-10 h-10 rounded-xl bg-teal-500 text-slate-950 font-black flex items-center justify-center text-lg">8</span>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">หัวข้อที่ 8: การติดตามและประเมินผล (Monitoring & Evaluation)</h2>
+                    <p class="text-xs text-slate-400">Dashboard ขับเคลื่อนกลยุทธ์ และตัวชี้วัดความสำเร็จ 4 ระดับ</p>
+                </div>
+            </div>
+
+            <!-- 8.1 Dashboard -->
+            <div class="mb-8">
+                <h3 class="text-base font-bold text-teal-300 mb-3">8.1 Dashboard ติดตามกลยุทธ์ (12 มิติ)</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                    <div class="p-3 bg-white/5 border border-white/10 rounded-xl"><strong class="text-teal-400 block">การเติบโต</strong>Net Revenue, Growth</div>
+                    <div class="p-3 bg-white/5 border border-white/10 rounded-xl"><strong class="text-teal-400 block">กำไร</strong>Gross Margin, CM, EBITDA</div>
+                    <div class="p-3 bg-white/5 border border-white/10 rounded-xl"><strong class="text-teal-400 block">ลูกค้า</strong>Repeat Rate, AOV, LTV/CAC</div>
+                    <div class="p-3 bg-white/5 border border-white/10 rounded-xl"><strong class="text-teal-400 block">ผลิตภัณฑ์</strong>Revenue/SKU, Hero Share</div>
+                    <div class="p-3 bg-white/5 border border-white/10 rounded-xl"><strong class="text-teal-400 block">การตลาด</strong>CAC, CAC Payback, Conv.</div>
+                    <div class="p-3 bg-white/5 border border-white/10 rounded-xl"><strong class="text-teal-400 block">ช่องทาง</strong>Active Doors, Sales/Door</div>
+                    <div class="p-3 bg-white/5 border border-white/10 rounded-xl"><strong class="text-teal-400 block">ต่างประเทศ</strong>Export Revenue, Country CM</div>
+                    <div class="p-3 bg-white/5 border border-white/10 rounded-xl"><strong class="text-teal-400 block">Supply Chain</strong>Forecast Acc., OTIF, Inventory</div>
+                </div>
+            </div>
+
+            <!-- 8.2 KPIs Feasibility Lens Table -->
+            <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                <h3 class="text-base font-bold text-teal-300 mb-3">8.2 ตัวชี้วัดความสำเร็จตาม Feasibility Lens (Input, Output, Outcome, Impact)</h3>
+                <div class="overflow-x-auto text-xs">
+                    <table class="w-full text-left">
+                        <thead class="bg-white/10 text-teal-200">
+                            <tr>
+                                <th class="p-2.5">Lens</th>
+                                <th class="p-2.5">Leading KPI (ระหว่าง Pilot)</th>
+                                <th class="p-2.5">Lagging KPI (หลัง Scale)</th>
+                                <th class="p-2.5">Trigger เงื่อนไขหยุด (Stop/Reset)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/10 text-slate-300">
+                            <tr><td class="p-2.5 font-bold text-teal-400">Product</td><td class="p-2.5">สูตร stability, proof milestone, batch pass</td><td class="p-2.5">complaint/AE, repeat, return reason</td><td class="p-2.5 text-red-400">safety red flag หรือ batch trace ไม่ครบ</td></tr>
+                            <tr><td class="p-2.5 font-bold text-teal-400">Market</td><td class="p-2.5">qualified traffic, WTP, conversion</td><td class="p-2.5">60/180-day repeat, organic share</td><td class="p-2.5 text-red-400">conversion ดีแต่ repeat ต่ำ = ห้าม Scale media</td></tr>
+                            <tr><td class="p-2.5 font-bold text-teal-400">Financial</td><td class="p-2.5">target COGS, net pocket, pilot CM</td><td class="p-2.5">GM, CM/order, CAC payback, EBITDA</td><td class="p-2.5 text-red-400">CM < 25% หรือ runway ต่ำกว่า policy</td></tr>
+                            <tr><td class="p-2.5 font-bold text-teal-400">Regulation</td><td class="p-2.5">critical checklist, PIF/notification readiness</td><td class="p-2.5">violation, takedown, AE closure</td><td class="p-2.5 text-red-400">Critical fail = Veto โดย Regulatory</td></tr>
+                            <tr><td class="p-2.5 font-bold text-teal-400">BMC</td><td class="p-2.5">owner/partner SLA, cycle time, forecast</td><td class="p-2.5">channel P&L, active doors, OTIF</td><td class="p-2.5 text-red-400">ไม่มี owner หรือ economics ขัดกัน</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 py-8 text-center text-xs border-t border-slate-900">
+        <p class="text-slate-300 font-bold mb-1">บริษัท คอสเมด พลัส จำกัด (CosMD) — แผนกลยุทธ์ธุรกิจ 5 ปี (2026 - 2031)</p>
+        <p>© 2026 Cosmed Plus Co., Ltd. รวมเครื่องมือจำลอง Unit Economics Simulator และการวิเคราะห์กลยุทธ์ครบถ้วน</p>
     </footer>
 
-    <!-- Interactive Script for Ansoff Matrix & S-Curve Tooltips -->
+    <!-- Chart & Simulator Scripts -->
     <script>
-        // Ansoff Data
-        const ansoffData = {
-            'penetration': {
-                subtitle: 'Market Penetration',
-                title: 'กลยุทธ์การเจาะตลาดสกินแคร์เดิม',
-                desc: 'เน้นจัดทำเนื้อหาวิดีโอสั้นและการตลาดเชิงให้ความรู้ (Educational Content) เพื่อแนะนำส่วนผสมของ Niacinamide + Zinc PCA สยบสิวและคุมมัน จัดทำเซ็ต Bundle แบบครบวงจรเพื่อความสะดวกในการซื้อซ้ำอย่างมั่นใจ',
-                bullets: [
-                    'แคมเปญ TikTok Shop และเครือข่าย MCN',
-                    'ชุดจัดเซ็ต Hero Set ราคาคุ้มค่า',
-                    'การจ้าง Influencer สายสกินแคร์รีวิว',
-                    'ส่วนลดผู้ติดตามและระบบสะสมแต้ม'
-                ],
-                icon: 'fa-magnifying-glass'
-            },
-            'product-dev': {
-                subtitle: 'Product Development',
-                title: 'กลยุทธ์การพัฒนาผลิตภัณฑ์บำรุงสูตรใหม่',
-                desc: 'มุ่งคิดค้นและเสนอสกินแคร์ใหม่ๆ เพื่อแก้ปัญหาจุดด่างดำ ผิวกระจ่างใส และการดูแลสกินแคร์ในกลุ่ม Anti-aging ที่มีประสิทธิภาพสูงเพื่อตอบโจทย์ฐานผู้ใช้งานเดิมที่เติบโตและมีความกังวลเพิ่มขึ้น',
-                bullets: [
-                    'เปิดตัวเซรั่มสูตร Triple Retinol 2%',
-                    'ขยายสายผลิตภัณฑ์กลุ่ม Ultra White Body',
-                    'ทดสอบประสิทธิภาพจากแล็บชั้นนำ',
-                    'บรรจุภัณฑ์เป็นมิตรต่อสิ่งแวดล้อม'
-                ],
-                icon: 'fa-flask'
-            },
-            'market-dev': {
-                subtitle: 'Market Development',
-                title: 'กลยุทธ์การเปิดตลาดไปยังกลุ่มลูกค้าใหม่',
-                desc: 'นำผลิตภัณฑ์สกินแคร์ CosMD สูตรเดิมที่มีอยู่ไปกระจายสินค้าและขยายฐานลูกค้าในกลุ่มภูมิศาสตร์ต่างประเทศ (ประเทศเพื่อนบ้าน CLMV) และขยายกลุ่มฐานลูกค้าเป้าหมาย เช่น ตลาดสกินแคร์ผู้ชาย (Men\'s Care)',
-                bullets: [
-                    'แต่งตั้งผู้จัดจำหน่ายหลักใน CLMV',
-                    'ปรับทิศทางการสื่อสารสู่ Men Skincare',
-                    'เข้าร่วมงานแสดงสินค้าอุตสาหกรรมความงาม',
-                    'การเพิ่มแพลตฟอร์มต่างชาติ Shopee Global'
-                ],
-                icon: 'fa-earth-americas'
-            },
-            'diversify': {
-                subtitle: 'Diversification',
-                title: 'กลยุทธ์การกระจายธุรกิจสร้างนวัตกรรมใหม่',
-                desc: 'พัฒนาช่องทางและนวัตกรรมใหม่ๆ เพื่อสร้าง New S-Curve ของบริษัท ก้าวข้ามจากข้อจำกัดสกินแคร์ทั่วไป ไปสู่เทคโนโลยีและความงามครบวงจร เช่น อาหารเสริม (Nutraceuticals) และอุปกรณ์เสริมความงามพกพา',
-                bullets: [
-                    'เปิดตัววิตามินและคอลลาเจนสูตรแพทย์',
-                    'คิดค้นอุปกรณ์นวัตกรรมตรวจเช็กสภาพผิว',
-                    'ระบบ Tele-consultation ปรึกษาหมอผิวหนัง',
-                    'ความร่วมมือพิเศษทางการตลาดกับคลินิก'
-                ],
-                icon: 'fa-wand-magic-sparkles'
+        // Unit Economics Calculator Logic
+        function calculateCM() {
+            const price = parseFloat(document.getElementById('sim_price').value) || 0;
+            const discount = parseFloat(document.getElementById('sim_discount').value) || 0;
+            const cogs = parseFloat(document.getElementById('sim_cogs').value) || 0;
+            const platform = parseFloat(document.getElementById('sim_platform').value) || 0;
+            const shipping = parseFloat(document.getElementById('sim_shipping').value) || 0;
+            const mkt = parseFloat(document.getElementById('sim_mkt').value) || 0;
+
+            // Calculations
+            const netPrice = price * (1 - (discount / 100));
+            const cogsVal = netPrice * (cogs / 100);
+            const platformVal = netPrice * (platform / 100);
+            const mktVal = netPrice * (mkt / 100);
+            const totalVarCost = cogsVal + platformVal + mktVal + shipping;
+            const cmBaht = netPrice - totalVarCost;
+            const cmPct = netPrice > 0 ? (cmBaht / netPrice) * 100 : 0;
+
+            // DOM Updates
+            document.getElementById('res_net_price').innerText = '฿' + netPrice.toFixed(2);
+            document.getElementById('res_var_cost').innerText = '฿' + totalVarCost.toFixed(2);
+            document.getElementById('res_cm_baht').innerText = '฿' + cmBaht.toFixed(2);
+            document.getElementById('res_cm_pct').innerText = cmPct.toFixed(1) + '%';
+
+            // Status Badge Logic
+            const badge = document.getElementById('res_status_badge');
+            if (cmPct >= 35) {
+                badge.innerText = 'ผ่านเกณฑ์ (Scale Ready ≥ 35%)';
+                badge.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+            } else if (cmPct >= 25) {
+                badge.innerText = 'เฝ้าระวัง (Iterate Required 25-35%)';
+                badge.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30';
+            } else {
+                badge.innerText = 'ไม่ผ่านเกณฑ์ (Stop / High Risk < 25%)';
+                badge.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold bg-red-500/20 text-red-300 border border-red-500/30';
             }
-        };
-
-        function switchAnsoff(strategyKey) {
-            // Remove active style from all buttons
-            document.querySelectorAll('.ansoff-btn').forEach(btn => {
-                btn.classList.remove('active', 'border-brand-red');
-                btn.classList.add('border-transparent');
-                
-                // Reset button text colors to slate
-                const textSpan = btn.querySelector('span');
-                if (textSpan) {
-                    textSpan.classList.remove('text-brand-red', 'bg-brand-softRed', 'border-brand-red/20');
-                    textSpan.classList.add('text-slate-500', 'bg-slate-200');
-                }
-            });
-
-            // Set active styles to clicked button
-            const activeBtn = document.getElementById(`ansoff-btn-${strategyKey}`);
-            if (activeBtn) {
-                activeBtn.classList.add('active', 'border-brand-red');
-                activeBtn.classList.remove('border-transparent');
-                
-                const textSpan = activeBtn.querySelector('span');
-                if (textSpan) {
-                    textSpan.classList.add('text-brand-red', 'bg-brand-softRed', 'border-brand-red/20');
-                    textSpan.classList.remove('text-slate-500', 'bg-slate-200');
-                }
-            }
-
-            // Animate content panel update
-            const panel = document.getElementById('ansoff-content-panel');
-            panel.style.opacity = 0;
-            panel.style.transform = 'translateY(10px)';
-
-            setTimeout(() => {
-                const data = ansoffData[strategyKey];
-                
-                // Update text content
-                document.getElementById('ansoff-detail-icon').innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
-                document.getElementById('ansoff-detail-subtitle').innerText = data.subtitle;
-                document.getElementById('ansoff-detail-title').innerText = data.title;
-                document.getElementById('ansoff-detail-desc').innerText = data.desc;
-                
-                // Update bullets
-                const bulletsContainer = document.getElementById('ansoff-detail-bullets');
-                bulletsContainer.innerHTML = '';
-                data.bullets.forEach(bulletText => {
-                    const li = document.createElement('li');
-                    li.className = 'flex items-center gap-2';
-                    li.innerHTML = `<i class="fa-regular fa-circle-check text-brand-red"></i> ${bulletText}`;
-                    bulletsContainer.appendChild(li);
-                });
-
-                // Fade back in
-                panel.style.opacity = 1;
-                panel.style.transform = 'translateY(0)';
-            }, 150);
         }
 
-        // SVG Donut slice interactions
-        document.querySelectorAll('.donut-slice').forEach(slice => {
-            slice.addEventListener('mouseover', function() {
-                const name = this.getAttribute('data-name');
-                const percent = this.getAttribute('data-percent');
-                document.getElementById('donut-center-name').innerText = name;
-                document.getElementById('donut-center-value').innerText = percent;
-            });
+        // Initialize Simulator on Load
+        calculateCM();
+
+        // Chart 5: Revenue Growth 2026-2031
+        const ctxRev5 = document.getElementById('revenueChart5').getContext('2d');
+        new Chart(ctxRev5, {
+            type: 'bar',
+            data: {
+                labels: ['2026 (Base)', '2027', '2028', '2029', '2030', '2031 (Target)'],
+                datasets: [{
+                    label: 'Net Revenue (ล้านบาท)',
+                    data: [20.0, 27.0, 37.8, 53.7, 74.1, 100.0],
+                    backgroundColor: 'rgba(20, 184, 166, 0.85)',
+                    borderColor: '#0f766e',
+                    borderWidth: 1.5,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, ticks: { callback: v => v + 'M' } }
+                }
+            }
         });
 
-        // S-Curve dot interactions
-        document.querySelectorAll('.scurve-dot').forEach(dot => {
-            dot.addEventListener('mouseover', function() {
-                // Highlight dot
-                document.querySelectorAll('.scurve-dot').forEach(d => {
-                    d.setAttribute('r', '7');
-                    d.setAttribute('stroke-width', '3');
-                });
-                this.setAttribute('r', '10');
-                this.setAttribute('stroke-width', '4.5');
-
-                const year = this.getAttribute('data-year');
-                const sales = this.getAttribute('data-sales');
-                const growth = this.getAttribute('data-growth');
-                const desc = this.getAttribute('data-desc');
-
-                // Animate info panel update
-                const infoPanel = document.getElementById('scurve-info-panel');
-                infoPanel.style.opacity = 0.3;
-                infoPanel.style.transform = 'translateX(5px)';
-
-                setTimeout(() => {
-                    document.getElementById('scurve-info-year').innerText = `ปี ${year}`;
-                    document.getElementById('scurve-info-growth').innerText = `Growth: ${growth}`;
-                    document.getElementById('scurve-info-sales').innerText = sales;
-                    document.getElementById('scurve-info-desc').innerText = desc;
-
-                    infoPanel.style.opacity = 1;
-                    infoPanel.style.transform = 'translateX(0)';
-                }, 100);
-            });
+        // Chart 6: Budget Allocation Structure
+        const ctxBud6 = document.getElementById('budgetChart6').getContext('2d');
+        new Chart(ctxBud6, {
+            type: 'line',
+            data: {
+                labels: ['2027', '2029', '2031'],
+                datasets: [
+                    { label: 'COGS + Packaging (%)', data: [32, 30, 28], borderColor: '#0284c7', borderWidth: 2 },
+                    { label: 'Marketing Total (%)', data: [35, 32, 29], borderColor: '#0d9488', borderWidth: 2 },
+                    { label: 'People (%)', data: [14, 14, 13], borderColor: '#6366f1', borderWidth: 2 },
+                    { label: 'R&D / Reg (%)', data: [5, 6, 6], borderColor: '#f59e0b', borderWidth: 2 }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } } },
+                scales: { y: { ticks: { callback: v => v + '%' } } }
+            }
         });
     </script>
 </body>
